@@ -5,4 +5,5 @@ export function Box(){
             <div className="bg-white w-full h-[50%] rounded-b-lg shadow-xl" />
         </div>
     )
+
 }
