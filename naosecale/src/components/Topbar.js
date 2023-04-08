@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Hamburguer } from './HamburguerBtn'
+import { FaHome, FaPhoneAlt, FaFlag, FaInfoCircle, FaExclamationTriangle, FaSearch } from 'react-icons/fa';
 
 export function Topbar(){
     return(
@@ -9,28 +10,51 @@ export function Topbar(){
                 <Link to="/"><span className="flex lg:hidden">NSC!</span></Link>
             </div>
 
-            <input type="text" className="hidden lg:flex shadow-lg border-2 hover:border-pink-500 ml-20 rounded-full text-black p-2 transition-colors margin lg:ml-0"/>
+            <div className='hidden bg-white items-center lg:flex shadow-lg border-2 hover:border-pink-500 ml-20 rounded-full text-black p-2 transition-colors margin lg:ml-0'>
+                <div>
+                    <FaSearch className="text-lg"/>
+                </div>
+
+                <div>
+                    <input type="text" className="hover:border-pink-500 focus:outline-none text-black p-2 transition-colors ml-0"/>
+                </div>
+            </div>
 
             <div className="hidden lg:flex gap-4">
-                <div className="underline flex flex-row items-center">
-                    <Link to="/"><span>Home</span></Link>
-                </div>
+                <Link to="/">
+                    <div className="underline flex flex-row items-center gap-1">
+                        <FaHome className="text-lg" />
+                        <span>Home</span>
+                    </div>
+                </Link>
 
-                <div className="underline flex flex-row items-center">
-                    <Link to="/"><span>Categorias</span></Link>
-                </div>
+                <Link to="/">
+                    <div className="underline flex flex-row items-center gap-1">
+                        <FaFlag className="text-lg" />
+                        <span>Categorias</span>
+                    </div>
+                </Link>
 
-                <div className="underline flex flex-row items-center">
-                    <Link to="/sobre"><span>Sobre</span></Link>
-                </div>
+                <Link to="/sobre">
+                    <div className="underline flex flex-row items-center gap-1">
+                        <FaInfoCircle className="text-lg" />
+                        <span>Sobre</span>
+                    </div>
+                </Link>
 
-                <div className="underline flex flex-row items-center">
-                    <Link to="/"><span>Contato</span></Link>
-                </div>
+                <Link to="/contato">
+                    <div className="underline flex flex-row items-center gap-1 ">
+                        <FaPhoneAlt className="text-lg" />
+                        <span>Contato</span>
+                    </div>
+                </Link>
 
-                <div className="underline flex flex-row items-center">
-                    <Link to="/"><span>Ligue 180</span></Link>
-                </div>
+                <Link to="/">
+                    <div className="underline flex flex-row items-center gap-1">
+                        <FaExclamationTriangle className="text-lg" />
+                        <span>Ligue 180</span>
+                    </div>
+                </Link>
             </div>
 
             <div className="flex lg:hidden">
