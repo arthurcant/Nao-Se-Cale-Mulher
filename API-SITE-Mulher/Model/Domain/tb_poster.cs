@@ -1,14 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using API_SITE_Mulher.Model.Base;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Cryptography;
 
 namespace API_SITE_Mulher.Model.Domain
 {
     [Table("tb_poster")]
-    public class tb_poster
+    public class tb_poster : BaseEntity
     {
-        [Column("id")]
-        private int _id { get; set; }
 
         [Column("id_usuario")]
         private int _id_usuario { get; set; }
@@ -28,17 +27,16 @@ namespace API_SITE_Mulher.Model.Domain
         public tb_usuario Autor { get; set; }
 
 
-        public int Id { get { return _id; } set { _id = value; } }
 
         public int Id_usuario { get { return Id_usuario; } set { Id_usuario = value; } }
 
-        public DateTime DataDaPublicacao { get { return DataDaPublicacao; } set { DataDaPublicacao = value; } }
+        public DateTime DataDaPublicacao { get { return _datadapublicacao; } set { _datadapublicacao = value; } }
 
-        public string Titulo { get { return Titulo; } set { Titulo = value; } }
+        public string Titulo { get { return _titulo; } set { _titulo = value; } }
 
-        public string Descricao { get { return Descricao; } set { Descricao = value; } }
+        public string Descricao { get { return _descricao; } set { _descricao = value; } }
 
-        public string Conteudo { get { return Conteudo; } set { Conteudo = value; } }
+        public string Conteudo { get { return _conteudo; } set { _conteudo = value; } }
 
     }
 }

@@ -25,11 +25,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Business\" />
+    <Folder Include="Business\Implementations\" />
     <Folder Include="Data\Converter\Contract\" />
     <Folder Include="Data\Converter\Implementations\" />
     <Folder Include="Data\VO\" />
-    <Folder Include="Repository\" />
   </ItemGroup>
 
 </Project>
