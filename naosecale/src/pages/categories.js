@@ -1,16 +1,15 @@
 import { Box } from '../components/Box'
 import { Topbar } from '../components/Topbar'
 import { Footer } from '../components/Footer'
-import { FaHome, FaPhoneAlt, FaFlag, FaInfoCircle, FaExclamationTriangle, FaSearch,FaArrowRight } from 'react-icons/fa';
 
-export function Contact() {
+export function Categories(){
     return(
         <>
             <div>
                 <Topbar/>
                 <div className="flex flex-col lg:flex-row items-center justify-between shadow-xl bg-[#FFDEF6]">
         
-                    <div className="border-solid shadow-xl lg:m-96 lg:my-14 bg-white rounded-lg">
+                    <div className="border-solid shadow-xl lg:m-96 lg:my-20 bg-white rounded-lg">
 
                         <div className="flex flex-col lg:flex-row lg:m-20 lg:ml-56 lg:mt-15 text-4xl">
                             <span>Contato</span>
@@ -41,15 +40,12 @@ export function Contact() {
                             Lorem Ipsum Av.Lorem Ipsum........................(99)99999-9999<br></br>
                             </a>
                         </div>
-                        <div className="text-center items-center gap-3 flex-row">
-                            <span>1 2 3 4...</span>
-                            <FaArrowRight className="text-lg"/>
-                    </div>
                     </div>
                 </div>
 
             <Footer/>
             </div>
         </>
-    ) 
+
+    )
 }
