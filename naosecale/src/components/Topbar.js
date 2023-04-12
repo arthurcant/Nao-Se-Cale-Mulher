@@ -28,7 +28,7 @@ export function Topbar(){
                     </div>
                 </Link>
 
-                <Link to="/">
+                <Link to="/categories">
                     <div className="underline flex flex-row items-center gap-1">
                         <FaFlag className="text-lg" />
                         <span>Categorias</span>
