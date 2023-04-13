@@ -42,10 +42,10 @@ export function Contact() {
                             Lorem Ipsum Av.Lorem Ipsum........................(99)99999-9999<br></br>
                             </a>
                         </div>
-                        <div className="text-center items-center gap-3 flex-row">
+                        <div className="text-center items-center gap-3 flex flex-row ml-[45%] my-6">
                             <span>1 2 3 4...</span>
                             <FaArrowRight className="text-lg"/>
-                    </div>
+                        </div>
                     </div>
                 </div>
 
