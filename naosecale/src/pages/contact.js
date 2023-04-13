@@ -18,7 +18,8 @@ export function Contact() {
                         </div>
             
                         <div className="lg:m-20 lg:mt-30 lg:mb-5 text-center">
-                            <a>Lorem Ipsum Av.Lorem Ipsum...(99)99999-9999<br></br>
+                            <a>
+                            Lorem Ipsum Av.Lorem Ipsum........................(99)99999-9999<br></br>
                             Lorem Ipsum Av.Lorem Ipsum........................(99)99999-9999<br></br>
                             Lorem Ipsum Av.Lorem Ipsum........................(99)99999-9999<br></br>
                             Lorem Ipsum Av.Lorem Ipsum........................(99)99999-9999<br></br>
