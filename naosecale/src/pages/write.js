@@ -24,10 +24,12 @@ export function Write(){
                                 </div>
 
                                 
-                                <div className="justify-start items-start flex flex-row items-center gap-36 h-[15%]">
-                            
-                                        <FaTrashAlt className="text-2xl gap-40 hover:text-[#6b0023]" />
-                                        <div className="text-pink-500 hover:text-[#6b0023]">
+                                <div className="justify-start items-start flex flex-row items-center gap-5 h-[15%]">
+                                        <div className="gap-40 lg:ml-[-70%]">
+                                            <FaTrashAlt className="text-2xl hover:text-[#6b0023]" />
+                                        </div>  
+
+                                        <div className="text-pink-500 hover:text-[#6b0023] lg:ml-[150%]">
                                             <span>Rascunho</span>
                                         </div>
                                    
@@ -38,8 +40,8 @@ export function Write(){
                                 </div>
 
                                 <div className="justify-end items-end flex flex-row w-[60%] h-[15%] gap-3  ">
-                                    <ImParagraphLeft className="text-3xl hover:text-[#6b0023] "/>
-                                    <AiOutlineGif className="text-3xl border-2 border-black hover:text-[#6b0023]bg-[#6b0023] "/>
+                                    <ImParagraphLeft className="text-3xl hover:text-[#6b0023] hover:box-content"/>
+                                    <AiOutlineGif className="text-3xl border-2 border-black hover:text-[#6b0023]  "/>
                                     <AiOutlineCamera className="text-3xl hover:text-[#6b0023]" />
                                 </div>
 
