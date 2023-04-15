@@ -13,7 +13,7 @@ export function Write(){
                 <div className="bg-black">
                     <div className="flex flex-col h-screen lg:flex-row items-center justify-center shadow-xl bg-[#FFDEF6]">
 
-                        <div className="flex justify-center items-start bg-white rounded-lg lg:h-[80%] lg:w-[48%]">
+                        <div className="flex justify-center items-start bg-white rounded-lg lg:h-[85%] lg:w-[48%]">
                             <div className="flex flex-col w-full h-full justify-center items-center"> 
                                 <div className="text-3xl text-center">
                                     <span className="font-semibold">Administração</span>
