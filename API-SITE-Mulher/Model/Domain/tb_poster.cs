@@ -26,6 +26,8 @@ namespace API_SITE_Mulher.Model.Domain
 
         public tb_usuario Autor { get; set; }
 
+        
+        public tb_detalhes_do_poster tb_Detalhes_Do_Poster { get; set; }
 
 
         public int Id_usuario { get { return Id_usuario; } set { Id_usuario = value; } }

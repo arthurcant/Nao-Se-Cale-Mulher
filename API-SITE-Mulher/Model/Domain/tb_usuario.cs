@@ -5,12 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace API_SITE_Mulher.Model.Domain
 {
 
-    [Table("person")]
+    [Table("tb_usuario")]
     public class tb_usuario : BaseEntity
     {
-        [Column("id")]
-        private int _id { get; set; }
-
         [Column("nome_completo")]
         private string _nomecompleto { get; set; }
 
@@ -32,12 +29,11 @@ namespace API_SITE_Mulher.Model.Domain
         [Column("refresh_token_expiry_time")]
         private DateTime _refreshtokenexpirytime { get; set; }
 
-        public List<tb_poster> ProsteresDoUsuario { get; set; }
+        public virtual ICollection<tb_poster> PosteresDoUsuario { get; set; }
 
 
-        public int Id { get { return _id; } set { _id = value; } }
 
-        public string Nomecompleto { get { return _nomecompleto; } set { _nomecompleto = value; } }
+        public string NomeCompleto { get { return _nomecompleto; } set { _nomecompleto = value; } }
 
         public string Email { get { return _email; } set { _email = value; } }
 
@@ -47,9 +43,9 @@ namespace API_SITE_Mulher.Model.Domain
 
         public int Role { get { return _role; } set { _role = value; } }
 
-        public string Refreshtoken { get { return _refreshtoken; } set { _refreshtoken = value; } }
+        public string RefreshToken { get { return _refreshtoken; } set { _refreshtoken = value; } }
 
-        public DateTime Refreshtokenexpirytime { get { return _refreshtokenexpirytime; } set { _refreshtokenexpirytime = value; } }
+        public DateTime RefreshTokenExpiryTime { get { return _refreshtokenexpirytime; } set { _refreshtokenexpirytime = value; } }
     }
 }
-}
+

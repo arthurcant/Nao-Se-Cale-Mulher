@@ -3,6 +3,7 @@
     public enum Roles
     {
         ADM = 0,
-        Voluntario = 1
+        Voluntario = 1,
+        ADMSupremo = 2
     }
 }

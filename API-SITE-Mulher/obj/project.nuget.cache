@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4WdYgL42KaEUga7MsKczIIlJnXwgsd2vgJ1hHRFtLSco+ABwZmuRvVQto+EeuRj003jMAG8/JtzX2L9yzYGDLQ==",
+  "dgSpecHash": "+DSupfklFVl5cPu0/1BmHAWRSFoTsEMSwDww7U1yzczHg6ay9/1XE0Ulg7RhAm4DWZ2/zVbDPSt6GXD0nSwQ9g==",
   "success": true,
   "projectFilePath": "C:\\Users\\arthu\\OneDrive - Scai Hub\\Área de Trabalho\\projetos\\Não-Se-Cale-Mulher\\API-SITE-Mulher\\API-SITE-Mulher.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,7 @@
     "C:\\Users\\arthu\\.nuget\\packages\\microsoft.aspnetcore.mvc.abstractions\\2.2.0\\microsoft.aspnetcore.mvc.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\arthu\\.nuget\\packages\\microsoft.aspnetcore.mvc.core\\2.2.0\\microsoft.aspnetcore.mvc.core.2.2.0.nupkg.sha512",
     "C:\\Users\\arthu\\.nuget\\packages\\microsoft.aspnetcore.mvc.formatters.json\\2.2.0\\microsoft.aspnetcore.mvc.formatters.json.2.2.0.nupkg.sha512",
+    "C:\\Users\\arthu\\.nuget\\packages\\microsoft.aspnetcore.mvc.formatters.xml\\2.2.0\\microsoft.aspnetcore.mvc.formatters.xml.2.2.0.nupkg.sha512",
     "C:\\Users\\arthu\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.0.0\\microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512",
     "C:\\Users\\arthu\\.nuget\\packages\\microsoft.aspnetcore.responsecaching.abstractions\\2.2.0\\microsoft.aspnetcore.responsecaching.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\arthu\\.nuget\\packages\\microsoft.aspnetcore.routing\\2.2.0\\microsoft.aspnetcore.routing.2.2.0.nupkg.sha512",

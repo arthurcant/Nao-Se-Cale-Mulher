@@ -14,9 +14,8 @@ namespace API_SITE_Mulher.Model
         private List<CategoriasDePosters> _tags { get; set; }
 
 
-        public int Id { get { return _id; } set { _id = value; } }
         public int Id_usuario { get { return _id_usuario; } set { _id_usuario = value; } }
-        public List<int?> Ids_Tags { get { return _ids_tags; } set { _ids_tags = value } }
+        public List<int?> Ids_Tags { get { return _ids_tags; } set { _ids_tags = value; } }
         public Usuario Autor { get { return _autor; } set { _autor = value; } }
         public DateTime DataDaPublicacao { get { return _datadapublicacao; } set { _datadapublicacao = value; } }
         public string Titulo { get { return _titulo; } set { _titulo = value; } }
