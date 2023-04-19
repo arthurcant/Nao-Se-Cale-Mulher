@@ -18,8 +18,8 @@ namespace API_SITE_Mulher.Model.Domain
 
         public int IdCategoriaDePosteres { get { return _idCategoriaDePosteres; } set { _idCategoriaDePosteres = value;  } }
 
-        public tb_categoria_de_posteres tb_Categoria_De_Posteres { get; set; }
-        public tb_poster tb_Poster { get; set; }
+        public ICollection<tb_categoria_de_posteres> tb_Categoria_De_Posteres { get; set; }
+        public ICollection<tb_poster> tb_Poster { get; set; }
 
     }
 }

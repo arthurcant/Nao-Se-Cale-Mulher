@@ -8,44 +8,34 @@ namespace API_SITE_Mulher.Model.Domain
     [Table("tb_usuario")]
     public class tb_usuario : BaseEntity
     {
+        public tb_usuario()
+        {
+        }
+
         [Column("nome_completo")]
-        private string _nomecompleto { get; set; }
+        public string NomeCompleto { get; set; }
 
         [Column("email")]
-        private string _email { get; set; }
+        public string Email { get; set; }
 
         [Column("senhar")]
-        private string _senha { get; set; }
+        public string Senha { get; set; }
 
         [Column("apelido")]
-        private string _apelido { get; set; }
+        public string? Apelido { get; set; }
 
         [Column("roles")]
-        private int _role { get; set; }
+        public int Role { get; set; }
 
         [Column("refresh_token")]
-        private string _refreshtoken { get; set; }
+        public string RefreshToken { get; set; }
 
         [Column("refresh_token_expiry_time")]
-        private DateTime _refreshtokenexpirytime { get; set; }
+        public DateTime RefreshTokenExpiryTime { get; set; }
 
-        public virtual ICollection<tb_poster> PosteresDoUsuario { get; set; }
+        public ICollection<tb_poster> PosteresDoUsuario { get; set; }
 
 
-
-        public string NomeCompleto { get { return _nomecompleto; } set { _nomecompleto = value; } }
-
-        public string Email { get { return _email; } set { _email = value; } }
-
-        public string Senha { get { return _senha; } set { _senha = value; } }
-
-        public string Apelido { get { return _apelido; } set { _apelido = value; } }
-
-        public int Role { get { return _role; } set { _role = value; } }
-
-        public string RefreshToken { get { return _refreshtoken; } set { _refreshtoken = value; } }
-
-        public DateTime RefreshTokenExpiryTime { get { return _refreshtokenexpirytime; } set { _refreshtokenexpirytime = value; } }
     }
 }
 

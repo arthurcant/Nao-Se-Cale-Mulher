@@ -33,7 +33,7 @@ namespace API_SITE_Mulher.Controllers
 
         [HttpPost]
         [Route("registe")]
-        public IActionResult Resgiste([FromBody] UsuarioRegister user )
+        public IActionResult Resgiste([FromBody] UsuarioRegisterVO user )
         {
             if (user == null) return BadRequest("Invalid register user");
 

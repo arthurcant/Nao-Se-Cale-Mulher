@@ -1,4 +1,5 @@
 ﻿using API_SITE_Mulher.Business;
+using API_SITE_Mulher.Data.VO;
 using API_SITE_Mulher.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -32,6 +33,21 @@ namespace API_SITE_Mulher.Controllers
             int page)
         {
             return Ok(_posteresBusiness.FindWithPagedSearch(name, sortDirection, pageSize, page));
+        }
+
+        [HttpPost]
+        [Route("registerpost")]
+        [ProducesResponseType(200, Type = typeof(List<Poster>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [TypeFilter(typeof(PosterRegisterVO))]
+        public IActionResult RegisterPoster(PosterRegisterVO poster)
+        {
+            if(poster == null) return BadRequest("Invalid Request");
+
+            var posterRegistrado = _posteresBusiness.Create(poster);
+
         }
 
 

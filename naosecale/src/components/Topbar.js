@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Hamburguer } from './HamburguerBtn'
+import { SearchBar } from './SearchBar'
 import { FaHome, FaPhoneAlt, FaFlag, FaInfoCircle, FaExclamationTriangle, FaSearch } from 'react-icons/fa';
 
 export function Topbar(){
@@ -10,15 +11,7 @@ export function Topbar(){
                 <Link to="/"><span className="flex lg:hidden">NSC!</span></Link>
             </div>
 
-            <div className='hidden bg-white items-center lg:flex shadow-lg border-2 hover:border-pink-500 ml-20 rounded-full text-black p-2 transition-colors margin lg:ml-0'>
-                <div>
-                    <FaSearch className="text-lg"/>
-                </div>
-
-                <div>
-                    <input type="text" className="hover:border-pink-500 focus:outline-none text-black p-2 transition-colors ml-0"/>
-                </div>
-            </div>
+            <SearchBar/>
 
             <div className="hidden lg:flex gap-4">
                 <Link to="/">

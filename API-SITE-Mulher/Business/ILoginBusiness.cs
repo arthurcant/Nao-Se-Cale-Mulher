@@ -7,7 +7,7 @@ namespace API_SITE_Mulher.Business
     {
         TokenVO ValidateCredentials(UserVO userCredentials);
         TokenVO ValidateCredentials(TokenVO token);
-        Usuario RegisterUser(UsuarioRegister user);
+        Usuario RegisterUser(UsuarioRegisterVO user);
         bool RevokeToken(string userName);
     }
 }

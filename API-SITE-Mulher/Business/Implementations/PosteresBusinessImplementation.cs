@@ -17,9 +17,10 @@ namespace API_SITE_Mulher.Business.Implementations
             _repository = repository;
         }
 
-        public Poster Create(Poster poster)
+        public Poster Create(PosterRegisterVO poster)
         {
-            throw new NotImplementedException();
+            var tb_poster = 
+
         }
 
         public void DeleteById(long id)

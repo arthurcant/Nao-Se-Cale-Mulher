@@ -19,6 +19,6 @@ namespace API_SITE_Mulher.Model.Domain
 
         public string NomeCategoria { get { return _nomeCategoria; } set { _nomeCategoria = value; } }
         public string NomeTag { get { return _nomeTag; } set { _nomeTag = value; } }
-        public string LinkPage { get { return _linkPage; } set { _linkPage = value; } }
+        //public string LinkPage { get { return $"{NomeTag}"; } set { LinkPage = value;} }
     }
 }

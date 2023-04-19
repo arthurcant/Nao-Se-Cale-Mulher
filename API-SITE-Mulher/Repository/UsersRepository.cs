@@ -26,7 +26,7 @@ namespace API_SITE_Mulher.Repository
             return context.tb_usuarios.FirstOrDefault(u => u.Email == user.email  &&  u.Senha == pass);
         }
 
-        private string ComputerHash(string input, SHA256CryptoServiceProvider algorithm)
+        public string ComputerHash(string input, SHA256CryptoServiceProvider algorithm)
         {
             Byte[] inputBytes = Encoding.UTF8.GetBytes(input);
             Byte[] hashedBytes = algorithm.ComputeHash(inputBytes);

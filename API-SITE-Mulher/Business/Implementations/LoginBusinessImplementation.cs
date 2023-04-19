@@ -1,5 +1,6 @@
 ﻿using API_SITE_Mulher.Configuration;
 using API_SITE_Mulher.Data.Converter.Implementations;
+using API_SITE_Mulher.Data.FillingEntities;
 using API_SITE_Mulher.Data.VO;
 using API_SITE_Mulher.Enum;
 using API_SITE_Mulher.Model;
@@ -8,8 +9,8 @@ using API_SITE_Mulher.Repository;
 using API_SITE_Mulher.Repository.Implementations;
 using API_SITE_Mulher.Services;
 using Microsoft.IdentityModel.JsonWebTokens;
-using System.Diagnostics;
 using System.Security.Claims;
+using System.Security.Cryptography;
 
 namespace API_SITE_Mulher.Business.Implementations
 {
@@ -19,19 +20,22 @@ namespace API_SITE_Mulher.Business.Implementations
         private TokenConfiguration _configuration;
         private readonly UsuarioConverter _converter;
         private IUsersRepository _repository;
+        private FillingEntity _fillingEntity;
         private readonly IRepository<tb_usuario> _repositoryUser;
         private readonly ITokenService _tokenService;
 
-        public LoginBusinessImplementation(TokenConfiguration configuration, 
-            IUsersRepository repository, 
-            IRepository<tb_usuario> repositoryUser, 
-            ITokenService tokenService)
+        public LoginBusinessImplementation(TokenConfiguration configuration,
+            IUsersRepository repository,
+            IRepository<tb_usuario> repositoryUser,
+            ITokenService tokenService,
+            FillingEntity fillingEntity)
         {
             _configuration = configuration;
             _converter = new UsuarioConverter();
             _repository = repository;
             _repositoryUser = repositoryUser;
             _tokenService = tokenService;
+            _fillingEntity = fillingEntity;
         }
 
         public TokenVO ValidateCredentials(UserVO userCredentials)
@@ -95,31 +99,25 @@ namespace API_SITE_Mulher.Business.Implementations
                 accessToken,
                 refreshToken);
         }
-        
+
         public bool RevokeToken(string userName)
         {
             return _repository.RevokeToken(userName);
         }
 
-        public Usuario RegisterUser(UsuarioRegister user)
+        public Usuario RegisterUser(UsuarioRegisterVO user)
         {
-            tb_usuario usuario = new tb_usuario();
 
-            usuario.NomeCompleto = user.NomeCompleto;
-            usuario.Senha = user.Senha;
-            usuario.Email = user.Email;
-            usuario.Apelido = user.Apelido;
-            usuario.Role = (int)Roles.Voluntario;
+            var tb_usuario = _fillingEntity.FillingEntityTbUsuario(user);
 
-            usuario.RefreshToken = _tokenService.GenerateRefreshToken();
-            usuario.RefreshTokenExpiryTime = DateTime.Now.AddDays(_configuration.DaysToExpiry);
-
-            var usuarioRegistrado = _repositoryUser.Create(usuario);
+            var usuarioRegistrado = _repositoryUser.Create(tb_usuario);
 
             if (usuarioRegistrado == null) return null;
 
-            return _converter.Parse(usuario);
+            return _converter.Parse(tb_usuario);
         }
+
+        
 
     }
 }
