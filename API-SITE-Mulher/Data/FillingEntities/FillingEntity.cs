@@ -6,10 +6,11 @@ using API_SITE_Mulher.Repository;
 using API_SITE_Mulher.Services;
 using System.Security.Cryptography;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API_SITE_Mulher.Data.FillingEntities
 {
-    public class FillingEntity
+    public class FillingEntity : ControllerBase
     {
         private IUsersRepository _repository;
         private readonly ITokenService _tokenService;
@@ -42,12 +43,17 @@ namespace API_SITE_Mulher.Data.FillingEntities
             tbPoster.Titulo = posterRegisterVO.Titulo;
             tbPoster.Descricao = posterRegisterVO.Descricao;
             tbPoster.Conteudo = posterRegisterVO.Conteudo;
-            //foreach (var item in posterRegisterVO.Tags)
-            //{
+            tbPoster.DataDaPublicacao = DateTime.Now;
+            var email = User.Identity.Name;
+            tbPoster.Autor = _repository.ValidateCredentials(email);
+            tbPoster.Id_usuario = tbPoster.Autor.Id;
 
-            //}
-            //tbPoster.tb_Detalhes_Do_Poster.tb_Categoria_De_Posteres.Add()
-            throw new NotImplementedException();
+            foreach (var item in posterRegisterVO.Tags)
+            {
+                tbPoster.tb_Detalhes_Do_Poster.tb_Categoria_De_Posteres.Add(item);
+            }
+
+            return tbPoster;   
         }
 
     }

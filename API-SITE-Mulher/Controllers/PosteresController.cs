@@ -48,6 +48,10 @@ namespace API_SITE_Mulher.Controllers
 
             var posterRegistrado = _posteresBusiness.Create(poster);
 
+            if (posterRegistrado == null) return BadRequest("Invalid Request");
+
+            return Created(posterRegistrado);
+
         }
 
 

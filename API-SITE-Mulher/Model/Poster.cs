@@ -6,7 +6,6 @@ namespace API_SITE_Mulher.Model
     {
         public int Id { get; set; }
         public int Id_usuario { get; set; }
-        public List<int?> Ids_Tags { get; set; }
         public Usuario Autor { get; set; }
         public DateTime DataDaPublicacao { get; set; }
         public string Titulo { get; set; }
