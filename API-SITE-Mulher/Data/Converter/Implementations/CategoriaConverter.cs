@@ -13,7 +13,7 @@ namespace API_SITE_Mulher.Data.Converter.Implementations
             return new tb_categoria_de_posteres
             {
                 Id = origin.Id,
-            }
+            };
         }
 
 

@@ -6,7 +6,7 @@ namespace API_SITE_Mulher.Repository.Implementations
     {
         T Create(T item);
         T Update(T item);
-        void DeleteById(int id);
+        void DeleteById(long id);
         List<T> FindWithPagedSearch(string query);
         int GetCount(string countQuery);
     }

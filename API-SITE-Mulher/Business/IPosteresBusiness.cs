@@ -6,8 +6,8 @@ namespace API_SITE_Mulher.Business
 {
     public interface IPosteresBusiness
     {
-        tb_poster Create(PosterRegisterVO poster);
-        PagedSearchVO<Poster> FindWithPagedSearch(string title, string sortDirection, int pageSize, int page);
+        tb_poster Create(PosterRegisterVO poster, string email);
+        PagedSearchVO<Poster> FindWithPagedSearch(string sortDirection, int pageSize, int page, string title = null);
         Poster Update(Poster poster);
         void DeleteById(long id);
     }

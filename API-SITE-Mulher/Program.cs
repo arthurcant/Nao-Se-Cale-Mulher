@@ -20,6 +20,7 @@ using System.Text;
 using Microsoft.Extensions.DependencyInjection;
 using API_SITE_Mulher.Model.Domain;
 using API_SITE_Mulher.Model;
+using API_SITE_Mulher.Data.FillingEntities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -99,11 +100,17 @@ builder.Services.AddSwaggerGen(c =>
 
 builder.Services.AddScoped<ICategoriasBusiness, CategoriasBusinessImplementation>();
 builder.Services.AddScoped<ILoginBusiness, LoginBusinessImplementation>();
-builder.Services.AddScoped<IPosteresRepository, PosteresRepository>();
-builder.Services.AddTransient<ITokenService, TokenService>();
-builder.Services.AddScoped<IUsersRepository, UsersRepository>();
-builder.Services.AddScoped<UsuarioConverter>();
+builder.Services.AddScoped<IPosteresBusiness, PosteresBusinessImplementation>();
 
+builder.Services.AddScoped<UsuarioConverter>();
+builder.Services.AddScoped<CategoriaConverter>();
+builder.Services.AddScoped<PosterConverter>();
+builder.Services.AddScoped<FillingEntity>();
+
+builder.Services.AddTransient<ITokenService, TokenService>();
+
+builder.Services.AddScoped<IPosteresRepository, PosteresRepository>();
+builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
 builder.Services.AddCors(options => options.AddDefaultPolicy(builder =>

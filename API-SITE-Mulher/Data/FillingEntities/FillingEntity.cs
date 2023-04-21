@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API_SITE_Mulher.Data.FillingEntities
 {
-    public class FillingEntity : ControllerBase
+    public class FillingEntity
     {
         private IUsersRepository _repository;
         private readonly ITokenService _tokenService;
@@ -21,6 +21,10 @@ namespace API_SITE_Mulher.Data.FillingEntities
             _repository = repository;
             _tokenService = tokenService;
             _configuration = configuration;
+        }
+
+        public FillingEntity()
+        {
         }
 
         public tb_usuario FillingEntityTbUsuario(UsuarioRegisterVO usuarioRegisterVO)
@@ -37,23 +41,37 @@ namespace API_SITE_Mulher.Data.FillingEntities
             return tbUsuario;
         }
 
-        public tb_poster FillingEntityTbPoster(PosterRegisterVO posterRegisterVO)
+        public tb_poster FillingEntityTbPoster(PosterRegisterVO posterRegisterVO, string email)
         {
             tb_poster tbPoster = new tb_poster();
-            tbPoster.Titulo = posterRegisterVO.Titulo;
-            tbPoster.Descricao = posterRegisterVO.Descricao;
-            tbPoster.Conteudo = posterRegisterVO.Conteudo;
-            tbPoster.DataDaPublicacao = DateTime.Now;
-            var email = User.Identity.Name;
-            tbPoster.Autor = _repository.ValidateCredentials(email);
-            tbPoster.Id_usuario = tbPoster.Autor.Id;
-
-            foreach (var item in posterRegisterVO.Tags)
+            try
             {
-                tbPoster.tb_Detalhes_Do_Poster.tb_Categoria_De_Posteres.Add(item);
+
+                tbPoster.Titulo = posterRegisterVO.Titulo;
+                tbPoster.Descricao = posterRegisterVO.Descricao;
+                tbPoster.Conteudo = posterRegisterVO.Conteudo;
+                tbPoster.DataDaPublicacao = DateTime.Now;
+                tbPoster.Autor = _repository.ValidateCredentials(email);
+                tbPoster.AutorId = 3;
+
+                var tbCategorias = new tb_categoria_de_posteres();
+                foreach (var item in posterRegisterVO.Tags)
+                {
+                    tbCategorias.Id = item.Id;
+                    tbCategorias.NomeCategoria = item.NomeCategoria;
+                    tbCategorias.NomeTag = item.NomeTag;
+
+                    tbPoster.tb_Detalhes_Do_Poster.tb_Categoria_De_Posteres.Add(tbCategorias);
+                }
+                return tbPoster;   
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
 
-            return tbPoster;   
+            return tbPoster;  
         }
 
     }

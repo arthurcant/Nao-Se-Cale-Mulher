@@ -35,7 +35,7 @@ namespace API_SITE_Mulher.Repository
 
         public tb_usuario ValidateCredentials(string email)
         {
-            return context.tb_usuarios.FirstOrDefault(u => u.Email == email);
+            return context.tb_usuarios.FirstOrDefault(u => u.Email.Equals(email));
         }
 
         public Usuario RefreshUserInfo(Usuario user)

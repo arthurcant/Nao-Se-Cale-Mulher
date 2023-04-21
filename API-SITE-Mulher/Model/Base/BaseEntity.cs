@@ -7,9 +7,8 @@ namespace API_SITE_Mulher.Model.Base
     {
         [Key]
         [Column("id")]
-        private int _id { get; set; }
+        public int Id { get; set; }
 
-        public int Id { get { return _id; } set { _id = value; } }
 
     }
 }

@@ -34,7 +34,7 @@ namespace API_SITE_Mulher.Data.Converter.Implementations
             tbPoster.DataDaPublicacao = DateTime.Now;
             var email = User.Identity.Name;
             tbPoster.Autor = _repository.ValidateCredentials(email);
-            tbPoster.Id_usuario = tbPoster.Autor.Id;
+            tbPoster.AutorId = tbPoster.Autor.Id;
 
             // TODO: Debito tecnico fazer uma converção usando PosterConverter.
             tb_categoria_de_posteres tbCategoriaDePosteres = new tb_categoria_de_posteres();

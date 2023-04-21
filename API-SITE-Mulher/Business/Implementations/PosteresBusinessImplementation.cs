@@ -14,6 +14,7 @@ namespace API_SITE_Mulher.Business.Implementations
         private readonly ILogger<Poster> _logger;
         private IRepository<tb_poster> _repository;
         private IUsersRepository _usersRepository;
+        private IPosteresRepository _posteresRepository;
         private readonly UsuarioConverter _converter;
         private readonly PosterConverter _posterConverter;
         private FillingEntity _fillingEntity;
@@ -21,6 +22,7 @@ namespace API_SITE_Mulher.Business.Implementations
         public PosteresBusinessImplementation(
             ILogger<Poster> logger, 
             IRepository<tb_poster> repository,
+            IPosteresRepository posteresRepository,
             IUsersRepository usersRepository,
             FillingEntity fillingEntity)
         {
@@ -28,14 +30,35 @@ namespace API_SITE_Mulher.Business.Implementations
             _repository = repository;
             _fillingEntity = fillingEntity;
             _usersRepository = usersRepository;
+            _posteresRepository = posteresRepository;
             _converter = new UsuarioConverter();
             _posterConverter = new PosterConverter();
         }
 
-        public tb_poster Create(PosterRegisterVO poster)
+        public tb_poster Create(PosterRegisterVO posterRegisterVO, string email)
         {
-            var tbPoster = _fillingEntity.FillingEntityTbPoster(poster);
-            var posterCreated = _repository.Create(tbPoster);
+            tb_poster tbPoster = new tb_poster();
+            tbPoster.Titulo = posterRegisterVO.Titulo;
+            tbPoster.Descricao = posterRegisterVO.Descricao;
+            tbPoster.Conteudo = posterRegisterVO.Conteudo;
+            tbPoster.DataDaPublicacao = DateTime.Now;
+            tbPoster.Autor = _usersRepository.ValidateCredentials(email);
+            tbPoster.AutorId = tbPoster.Autor.Id;
+            var posterCreated = _posteresRepository.CreatePoster(tbPoster);
+
+
+            tbPoster.tb_Detalhes_Do_Poster = new tb_detalhes_do_poster();
+            tbPoster.tb_Detalhes_Do_Poster.tb_Categoria_De_Posteres = new List<tb_categoria_de_posteres>();
+
+            var tbCategorias = new tb_categoria_de_posteres();
+            foreach (var item in posterRegisterVO.Tags)
+            {
+                tbCategorias.Id = item.Id;
+                tbCategorias.NomeCategoria = item.NomeCategoria;
+                tbCategorias.NomeTag = item.NomeTag;
+
+                tbPoster.tb_Detalhes_Do_Poster.tb_Categoria_De_Posteres.Add(tbCategorias);
+            }
 
             return posterCreated;
         }
@@ -45,7 +68,7 @@ namespace API_SITE_Mulher.Business.Implementations
             _repository.DeleteById(id);
         }
 
-        public PagedSearchVO<Poster> FindWithPagedSearch(string title, string sortDirection, int pageSize, int page)
+        public PagedSearchVO<Poster> FindWithPagedSearch(string sortDirection, int pageSize, int page, string title = null)
         {
             var sort = (!string.IsNullOrEmpty(sortDirection) && !sortDirection.Equals("asc")) ? "desc" : "asc";
 
