@@ -3,14 +3,15 @@ using API_SITE_Mulher.Model.Base;
 
 namespace API_SITE_Mulher.Model
 {
-    public class Usuario : BaseEntity
+    public class Usuario
     {
-        private string NomeCompleto { get; set; }
-        private string Email { get; set; }
-        private string Senha { get; set; }
-        private string Apelido { get; set; }
-        private Roles Role { get; set; }
-        private string RefreshToken { get; set; }
-        private DateTime RefreshTokenExpiryTime { get; set; }
+        public int Id { get; set; }
+        public string NomeCompleto { get; set; }
+        public string Email { get; set; }
+        public string Senha { get; set; }
+        public string? Apelido { get; set; }
+        public Roles Role { get; set; }
+        public string RefreshToken { get; set; }
+        public DateTime RefreshTokenExpiryTime { get; set; }
     }
 }

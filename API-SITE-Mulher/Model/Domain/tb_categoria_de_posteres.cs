@@ -7,16 +7,12 @@ namespace API_SITE_Mulher.Model.Domain
     public class tb_categoria_de_posteres : BaseEntity
     {
         [Column("name_categoria")]
-        public string _nomeCategoria { get; set; }
-
-        [Column("name_categoria")]
-        public string _nomeTag { get; set; }
+        public string NomeCategoria { get; set; }
 
         [Column("nome_tag")]
-        public string _linkPage { get; set; }
+        public string NomeTag { get; set; }
 
-        public string NomeCategoria { get { return _nomeCategoria; } set { _nomeCategoria = value; } }
-        public string NomeTag { get { return _nomeTag; } set { _nomeTag = value; } }
-        public string LinkPage { get { return _linkPage; } set { _linkPage = value; } }
+        public tb_detalhes_do_poster tb_Detalhes_Do_Poster { get; set; }
+
     }
 }

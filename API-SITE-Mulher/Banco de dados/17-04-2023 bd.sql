@@ -5,9 +5,9 @@ use nao_se_cale_mulher_db;
 create table tb_usuario (
 	id int not null primary key auto_increment,
     nome_completo varchar(90) not null,
-    email  varchar(40) not null,
-    senhar varchar(50) not null,
-    apelido varchar(30),
+    email  varchar(40) not null unique,
+    senhar varchar(200) not null,
+    apelido varchar(30) null unique,
     roles int default 1,
     refresh_token VARCHAR(500) NULL DEFAULT '0',
 	refresh_token_expiry_time DATETIME NULL DEFAULT NULL
@@ -24,8 +24,8 @@ create table tb_poster(
 );
 
 create table detalhes_do_poster (
-	id_poster int null,
-    id_categoria_de_posteres int null,
+	id_poster int not null,
+    id_categoria_de_posteres int not null,
     foreign key (id_poster) REFERENCES tb_poster(id),
     foreign key (id_categoria_de_posteres) REFERENCES tb_categoria_de_posteres(id)
 );
