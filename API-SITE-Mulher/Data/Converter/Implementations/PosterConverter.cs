@@ -30,6 +30,7 @@ namespace API_SITE_Mulher.Data.Converter.Implementations
             if (origin is null) return null;
 
             tb_poster tbPoster = new tb_poster();
+            tbPoster.Id = origin.Id;
             tbPoster.Titulo = origin.Titulo;
             tbPoster.Descricao = origin.Descricao;
             tbPoster.Conteudo = origin.Conteudo;
@@ -57,6 +58,7 @@ namespace API_SITE_Mulher.Data.Converter.Implementations
             if (origin is null) return null;
 
             Poster poster = new Poster();
+            poster.Id = origin.Id;
             poster.Titulo = origin.Titulo;
             poster.Descricao = origin.Descricao;
             poster.Conteudo = origin.Conteudo;
