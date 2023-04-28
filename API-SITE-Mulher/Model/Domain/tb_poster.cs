@@ -1,7 +1,9 @@
 ﻿using API_SITE_Mulher.Model.Base;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Cryptography;
+using System.Text.Json.Serialization;
 
 namespace API_SITE_Mulher.Model.Domain
 {
@@ -11,7 +13,7 @@ namespace API_SITE_Mulher.Model.Domain
 
         [ForeignKey("tb_usuario")]
         [Column("id_usuario")]
-        public int AutorId { get; set; }
+        public int? id_usuario { get; set; }
 
         [Column("data_de_publicacao")]
         public DateTime DataDaPublicacao { get; set; }
@@ -25,9 +27,9 @@ namespace API_SITE_Mulher.Model.Domain
         [Column("conteudo")]
         public string Conteudo { get; set; }
 
-        public virtual tb_usuario Autor { get; set; }
-
-        public virtual tb_detalhes_do_poster tb_Detalhes_Do_Poster { get; set; }
+        [JsonIgnore]
+        public tb_usuario? tbUsuarios { get; set; }
+        public ICollection<tb_categoria_de_posteres>? tbCategoriaDePosteres { get; set; }
 
     }
 }

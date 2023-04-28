@@ -1,26 +1,21 @@
 using API_SITE_Mulher.Business;
 using API_SITE_Mulher.Business.Implementations;
 using API_SITE_Mulher.Configuration;
-using API_SITE_Mulher.Data.Converter.Contract;
 using API_SITE_Mulher.Data.Converter.Implementations;
+using API_SITE_Mulher.Data.FillingEntities;
 using API_SITE_Mulher.Model.Context;
 using API_SITE_Mulher.Repository;
 using API_SITE_Mulher.Repository.Implementations;
-using API_SITE_Mulher.Services.Implementations;
 using API_SITE_Mulher.Services;
+using API_SITE_Mulher.Services.Implementations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
 using System.Text;
-using Microsoft.Extensions.DependencyInjection;
-using API_SITE_Mulher.Model.Domain;
-using API_SITE_Mulher.Model;
-using API_SITE_Mulher.Data.FillingEntities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -69,10 +64,10 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-builder.Services.AddAuthorization(auth => 
+builder.Services.AddAuthorization(auth =>
 {
     auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
-        .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme) 
+        .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
         .RequireAuthenticatedUser().Build());
 });
 

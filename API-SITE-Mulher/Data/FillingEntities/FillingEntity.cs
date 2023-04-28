@@ -41,34 +41,23 @@ namespace API_SITE_Mulher.Data.FillingEntities
             return tbUsuario;
         }
 
-        public tb_poster FillingEntityTbPoster(PosterRegisterVO posterRegisterVO, string email)
+        public tb_poster FillingEntityTbPoster(PosterVO posterRegisterVO, string email)
         {
             tb_poster tbPoster = new tb_poster();
-            try
+            tbPoster.Titulo = posterRegisterVO.Titulo;
+            tbPoster.Descricao = posterRegisterVO.Descricao;
+            tbPoster.Conteudo = posterRegisterVO.Conteudo;
+            tbPoster.DataDaPublicacao = DateTime.Now;
+            tbPoster.tbUsuarios = _repository.ValidateCredentials(email);
+            //tbPoster.id_usuario = tbPoster.tb_usuarioAutor.Id;
+
+            tb_categoria_de_posteres tb_Categoria_De_Posteres = new tb_categoria_de_posteres();
+            foreach (var item in posterRegisterVO.Tags)
             {
-
-                tbPoster.Titulo = posterRegisterVO.Titulo;
-                tbPoster.Descricao = posterRegisterVO.Descricao;
-                tbPoster.Conteudo = posterRegisterVO.Conteudo;
-                tbPoster.DataDaPublicacao = DateTime.Now;
-                tbPoster.Autor = _repository.ValidateCredentials(email);
-                tbPoster.AutorId = 3;
-
-                var tbCategorias = new tb_categoria_de_posteres();
-                foreach (var item in posterRegisterVO.Tags)
-                {
-                    tbCategorias.Id = item.Id;
-                    tbCategorias.NomeCategoria = item.NomeCategoria;
-                    tbCategorias.NomeTag = item.NomeTag;
-
-                    tbPoster.tb_Detalhes_Do_Poster.tb_Categoria_De_Posteres.Add(tbCategorias);
-                }
-                return tbPoster;   
-            }
-            catch (Exception ex)
-            {
-
-                throw;
+                tb_Categoria_De_Posteres.Id = item.Id;
+                tb_Categoria_De_Posteres.NomeCategoria = item.NomeCategoria;
+                tb_Categoria_De_Posteres.NomeTag = item.NomeTag;
+                tbPoster.tbCategoriaDePosteres.Add(tb_Categoria_De_Posteres);
             }
 
             return tbPoster;  

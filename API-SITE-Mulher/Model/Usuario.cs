@@ -1,5 +1,4 @@
 ﻿using API_SITE_Mulher.Enum;
-using API_SITE_Mulher.Model.Base;
 
 namespace API_SITE_Mulher.Model
 {

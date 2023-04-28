@@ -33,7 +33,7 @@ namespace API_SITE_Mulher.Model.Domain
         [Column("refresh_token_expiry_time")]
         public DateTime RefreshTokenExpiryTime { get; set; }
 
-        public ICollection<tb_poster> PosteresDoUsuario { get; set; }
+        public ICollection<tb_poster>? PosteresDoUsuario { get; set; }
 
 
     }

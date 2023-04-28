@@ -32,33 +32,19 @@ namespace API_SITE_Mulher.Business.Implementations
             _usersRepository = usersRepository;
             _posteresRepository = posteresRepository;
             _converter = new UsuarioConverter();
-            _posterConverter = new PosterConverter();
+            _posterConverter = new PosterConverter(_usersRepository);
         }
 
-        public tb_poster Create(PosterRegisterVO posterRegisterVO, string email)
+        public tb_poster Create(PosterVO posterRegisterVO, string email)
         {
             tb_poster tbPoster = new tb_poster();
             tbPoster.Titulo = posterRegisterVO.Titulo;
             tbPoster.Descricao = posterRegisterVO.Descricao;
             tbPoster.Conteudo = posterRegisterVO.Conteudo;
             tbPoster.DataDaPublicacao = DateTime.Now;
-            tbPoster.Autor = _usersRepository.ValidateCredentials(email);
-            tbPoster.AutorId = tbPoster.Autor.Id;
+            tbPoster.tbUsuarios = _usersRepository.ValidateCredentials(email);
+            //tbPoster.id_usuario = tbPoster.tb_usuarioAutor.Id;
             var posterCreated = _posteresRepository.CreatePoster(tbPoster);
-
-
-            tbPoster.tb_Detalhes_Do_Poster = new tb_detalhes_do_poster();
-            tbPoster.tb_Detalhes_Do_Poster.tb_Categoria_De_Posteres = new List<tb_categoria_de_posteres>();
-
-            var tbCategorias = new tb_categoria_de_posteres();
-            foreach (var item in posterRegisterVO.Tags)
-            {
-                tbCategorias.Id = item.Id;
-                tbCategorias.NomeCategoria = item.NomeCategoria;
-                tbCategorias.NomeTag = item.NomeTag;
-
-                tbPoster.tb_Detalhes_Do_Poster.tb_Categoria_De_Posteres.Add(tbCategorias);
-            }
 
             return posterCreated;
         }
@@ -68,20 +54,20 @@ namespace API_SITE_Mulher.Business.Implementations
             _repository.DeleteById(id);
         }
 
-        public PagedSearchVO<Poster> FindWithPagedSearch(string sortDirection, int pageSize, int page, string title = null)
+        public PagedSearchVO<Poster> FindWithPagedSearch(string sortDirection, int pageSize, int page, tb_usuario tbUsuario, string title)
         {
             var sort = (!string.IsNullOrEmpty(sortDirection) && !sortDirection.Equals("asc")) ? "desc" : "asc";
 
-            var size = (pageSize < 1) ? 1 : pageSize;
+            var size = (pageSize < 1) ? 10 : pageSize;
             var offset = page > 0 ? (page - 1) * size : 0;
 
-            string query = @"select * from tb_poster p where 1 = 1";
+            string query = @"select * from tb_poster p where 1 = 1 ";
 
-            if (!string.IsNullOrEmpty(title)) query += $" and p.titulo like '%{title}%'";
-            query += $"order by p.titulo {sort} limit {size} offset {offset}";
+            if (!string.IsNullOrEmpty(title)) query += $" and p.titulo like '%{title}%' ";
+            query += $"order by p.titulo {sort} limit {size} offset {offset} ";
 
-            string countQuery = @"select count(*) from tb_poster p where 1 = 1";
-            if (!string.IsNullOrEmpty(title)) countQuery += $" and p.titulo like '%{title}%'";
+            string countQuery = @"select count(*) from tb_poster p where 1 = 1 ";
+            if (!string.IsNullOrEmpty(title)) countQuery += $" and p.titulo like '%{title}%' ";
 
             var posteres = _repository.FindWithPagedSearch(query);
             int totalResult = _repository.GetCount(countQuery);
@@ -89,17 +75,18 @@ namespace API_SITE_Mulher.Business.Implementations
             return new PagedSearchVO<Poster>
             {
                 CurrentPage = page,
-                List = _posterConverter.Parse(posteres),
+                List = _posterConverter.Parse(posteres, tbUsuario),
                 PageSize= pageSize,
                 SortDirections = sortDirection,
                 TotalResults = totalResult
             };
         }
 
-        public Poster Update(Poster poster)
+        public Poster Update(Poster poster, tb_usuario tbUsuario)
         {
-            var tbPoster = _posterConverter.Parse(poster);
-            var posterModel = _posterConverter.Parse(_repository.Update(tbPoster));
+            var tbPoster = _posterConverter.Parse(poster, tbUsuario);
+            var posterModel = _posterConverter.Parse(_repository.Update(tbPoster), tbUsuario);
+
             return posterModel;
         }
     }

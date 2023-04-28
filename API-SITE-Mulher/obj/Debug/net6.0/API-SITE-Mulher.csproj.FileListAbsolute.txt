@@ -1,5 +1,6 @@
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Não-Se-Cale-Mulher\API-SITE-Mulher\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Não-Se-Cale-Mulher\API-SITE-Mulher\bin\Debug\net6.0\appsettings.json
+C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Não-Se-Cale-Mulher\API-SITE-Mulher\bin\Debug\net6.0\libman.json
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Não-Se-Cale-Mulher\API-SITE-Mulher\bin\Debug\net6.0\API-SITE-Mulher.exe
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Não-Se-Cale-Mulher\API-SITE-Mulher\bin\Debug\net6.0\API-SITE-Mulher.deps.json
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Não-Se-Cale-Mulher\API-SITE-Mulher\bin\Debug\net6.0\API-SITE-Mulher.runtimeconfig.json

@@ -1,5 +1,6 @@
 ﻿using API_SITE_Mulher.Model.Base;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace API_SITE_Mulher.Model.Domain
 {
@@ -12,7 +13,7 @@ namespace API_SITE_Mulher.Model.Domain
         [Column("nome_tag")]
         public string NomeTag { get; set; }
 
-        public tb_detalhes_do_poster tb_Detalhes_Do_Poster { get; set; }
-
+        [JsonIgnore]
+        public ICollection<tb_poster>? tbPosters { get; set; }
     }
 }
