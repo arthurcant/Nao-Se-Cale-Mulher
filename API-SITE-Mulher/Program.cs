@@ -106,6 +106,7 @@ builder.Services.AddTransient<ITokenService, TokenService>();
 
 builder.Services.AddScoped<IPosteresRepository, PosteresRepository>();
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
 builder.Services.AddCors(options => options.AddDefaultPolicy(builder =>

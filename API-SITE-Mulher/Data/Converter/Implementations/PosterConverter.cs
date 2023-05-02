@@ -43,7 +43,7 @@ namespace API_SITE_Mulher.Data.Converter.Implementations
                 tb_categoria_de_posteres categoria_De_Posteres = new tb_categoria_de_posteres();
                 foreach (var item in origin.Tags)
                 {
-                    categoria_De_Posteres.Id = item.Id;
+                    categoria_De_Posteres.Id = item.Id ?? 0;
                     categoria_De_Posteres.NomeCategoria = item.NomeCategoria;
                     categoria_De_Posteres.NomeTag = item.NomeTag;
                     tbPoster.tbCategoriaDePosteres.Add(categoria_De_Posteres);
@@ -77,7 +77,6 @@ namespace API_SITE_Mulher.Data.Converter.Implementations
                     poster.Tags.Add(categoria_De_Posteres);
                 }
             }
-
             return poster;
         }
 

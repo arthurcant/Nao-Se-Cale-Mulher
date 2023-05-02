@@ -8,7 +8,6 @@ namespace API_SITE_Mulher.Data.VO
         public string Titulo { get; set; }
         public string? Descricao { get; set; }
         public string Conteudo { get; set; }
-        public List<CategoriasDePosters>? Tags { get; set; }
-
+        public List<int>? Tags { get; set; }
     }
 }

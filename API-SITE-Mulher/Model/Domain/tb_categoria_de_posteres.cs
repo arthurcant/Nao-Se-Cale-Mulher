@@ -7,6 +7,7 @@ namespace API_SITE_Mulher.Model.Domain
     [Table("tb_categoria_de_posteres")]
     public class tb_categoria_de_posteres : BaseEntity
     {
+
         [Column("name_categoria")]
         public string NomeCategoria { get; set; }
 

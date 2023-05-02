@@ -12,23 +12,36 @@ namespace API_SITE_Mulher.Data.Converter.Implementations
 
             return new tb_categoria_de_posteres
             {
-                Id = origin.Id,
+                Id = origin.Id ?? 0,
+                NomeCategoria = origin.NomeCategoria,
+                NomeTag = origin.NomeTag
             };
         }
 
 
         public CategoriasDePosters Parse(tb_categoria_de_posteres origin)
         {
-            throw new NotImplementedException();
+            if (origin is null) return null;
+
+            return new CategoriasDePosters
+            {
+                Id = origin.Id,
+                NomeCategoria = origin.NomeCategoria,
+                NomeTag = origin.NomeTag
+            };
         }
         public List<tb_categoria_de_posteres> Parse(List<CategoriasDePosters> origin)
         {
-            throw new NotImplementedException();
+            if (origin is null) return null;
+
+            return origin.Select(c => Parse(c)).ToList();
         }
 
         public List<CategoriasDePosters> Parse(List<tb_categoria_de_posteres> origin)
         {
-            throw new NotImplementedException();
+            if (origin is null) return null;
+
+            return origin.Select(c => Parse(c)).ToList();
         }
     }
 }

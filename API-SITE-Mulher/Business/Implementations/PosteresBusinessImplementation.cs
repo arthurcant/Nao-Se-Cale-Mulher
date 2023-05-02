@@ -15,6 +15,7 @@ namespace API_SITE_Mulher.Business.Implementations
         private IRepository<tb_poster> _repository;
         private IUsersRepository _usersRepository;
         private IPosteresRepository _posteresRepository;
+        private ICategoriaRepository _categoriaRepository;
         private readonly UsuarioConverter _converter;
         private readonly PosterConverter _posterConverter;
         private FillingEntity _fillingEntity;
@@ -24,7 +25,8 @@ namespace API_SITE_Mulher.Business.Implementations
             IRepository<tb_poster> repository,
             IPosteresRepository posteresRepository,
             IUsersRepository usersRepository,
-            FillingEntity fillingEntity)
+            FillingEntity fillingEntity,
+            ICategoriaRepository categoriaRepository)
         {
             _logger = logger;
             _repository = repository;
@@ -33,6 +35,7 @@ namespace API_SITE_Mulher.Business.Implementations
             _posteresRepository = posteresRepository;
             _converter = new UsuarioConverter();
             _posterConverter = new PosterConverter(_usersRepository);
+            _categoriaRepository = categoriaRepository;
         }
 
         public tb_poster Create(PosterVO posterRegisterVO, string email)
@@ -46,10 +49,27 @@ namespace API_SITE_Mulher.Business.Implementations
             //tbPoster.id_usuario = tbPoster.tb_usuarioAutor.Id;
             var posterCreated = _posteresRepository.CreatePoster(tbPoster);
 
+            if (posterRegisterVO.Tags is not null)
+            {
+                tb_categoria_de_posteres categoriaVerificada = new tb_categoria_de_posteres();
+                List<tb_categoria_de_posteres> tb_Categoria = new List<tb_categoria_de_posteres>();
+                foreach (var item in posterRegisterVO.Tags)
+                {
+                    categoriaVerificada = _categoriaRepository.foundCategoriaById(item);
+
+                    if (categoriaVerificada != null)
+                        tb_Categoria.Add(categoriaVerificada);
+                }
+
+                posterCreated.tbCategoriaDePosteres = tb_Categoria;
+
+                posterCreated = _repository.Update(posterCreated);
+            }
+
             return posterCreated;
         }
 
-        public void DeleteById(long id)
+        public void DeleteById(int id)
         {
             _repository.DeleteById(id);
         }
@@ -69,7 +89,7 @@ namespace API_SITE_Mulher.Business.Implementations
             string countQuery = @"select count(*) from tb_poster p where 1 = 1 ";
             if (!string.IsNullOrEmpty(title)) countQuery += $" and p.titulo like '%{title}%' ";
 
-            var posteres = _repository.FindWithPagedSearch(query);
+            var posteres = _posteresRepository.FindWithPagedSearchPosteres(query);
             int totalResult = _repository.GetCount(countQuery);
 
             return new PagedSearchVO<Poster>

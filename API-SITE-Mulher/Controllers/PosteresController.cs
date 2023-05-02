@@ -38,7 +38,6 @@ namespace API_SITE_Mulher.Controllers
         }
 
         [HttpPost]
-        [Authorize("Bearer")]
         [Route("registerpost")]
         public IActionResult RegisterPoster(PosterVO poster)
         {
@@ -68,5 +67,14 @@ namespace API_SITE_Mulher.Controllers
 
             return Ok(posterUpdated);
         }
+
+        [HttpDelete("{id}")]
+        [Route("deleteposter")]
+        public IActionResult DeletePoster(int id)
+        {
+            _posteresBusiness.DeleteById(id);
+            return NoContent();
+        }
+
     }
 }
