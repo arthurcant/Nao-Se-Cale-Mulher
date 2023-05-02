@@ -51,7 +51,9 @@ namespace API_SITE_Mulher.Controllers
         public IActionResult Refresh([FromBody] TokenVO tokenVo)
         {
             if (tokenVo is null) return BadRequest("Invalid client request");
+
             var token = _loginBusiness.ValidateCredentials(tokenVo);
+
             if (token is null) return BadRequest("Invalid client request");
 
             return Ok(token);

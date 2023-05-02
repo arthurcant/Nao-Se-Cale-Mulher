@@ -15,6 +15,6 @@ namespace API_SITE_Mulher.Model.Domain
         public string NomeTag { get; set; }
 
         [JsonIgnore]
-        public ICollection<tb_poster>? tbPosters { get; set; }
+        public ICollection<tb_poster>? tbPosters { get; set; } = new List<tb_poster>();
     }
 }

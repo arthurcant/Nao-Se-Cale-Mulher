@@ -30,7 +30,7 @@ namespace API_SITE_Mulher.Model.Domain
         [JsonIgnore]
         public tb_usuario? tbUsuarios { get; set; }
 
-        public ICollection<tb_categoria_de_posteres>? tbCategoriaDePosteres { get; set; }
+        public ICollection<tb_categoria_de_posteres>? tbCategoriaDePosteres { get; set; } = new List<tb_categoria_de_posteres>();
 
     }
 }

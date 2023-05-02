@@ -9,28 +9,24 @@ namespace API_SITE_Mulher.Repository
     {
         public CategoriaRepository(MySQLContext context) : base(context) { }
 
-        public bool AddCategoriasParaPoster(int idPoster, IdsCategoria idsCategoria)
+        public bool AddCategoriasParaPoster(int idPoster, int idCategoria)
         {
-            var tbPoster = _context.tb_posters.FirstOrDefault(p => p.Id.Equals(idPoster));
+            var tbPoster = _context.tb_posters.Include(c => c.tbCategoriaDePosteres).FirstOrDefault(p => p.Id.Equals(idPoster));
 
             if (tbPoster == null) return false;
 
-            foreach (var ids in idsCategoria.IDsCategoria)
-            {
-                var tbCategorias = _context.tb_Categoria_De_Posteres.FirstOrDefault(t => t.Id.Equals(ids));
-                if (tbCategorias is not null)
-                    tbPoster.tbCategoriaDePosteres.Add(tbCategorias);
+            tb_categoria_de_posteres? tbCategorias = foundCategoriaById(idCategoria);
 
-            }
+            if (tbCategorias is null) return false;
+
+            tbPoster.tbCategoriaDePosteres.Add(tbCategorias);
 
             try
             {
                 _context.SaveChanges();
-
             }
             catch (Exception)
             {
-
                 throw;
             }
 
@@ -43,5 +39,12 @@ namespace API_SITE_Mulher.Repository
         }
 
         public tb_categoria_de_posteres foundCategoriaById(int id) => _context.tb_Categoria_De_Posteres.FirstOrDefault(t => t.Id == id);
+
+        public IQueryable<ICollection<tb_poster>?> GetPosteresByIdCategoria(int id)
+        {
+            IQueryable<ICollection<tb_poster>?> categoriaPosteres = _context.tb_Categoria_De_Posteres.Include(c => c.tbPosters).Where(c => c.Id == id).Select(p => p.tbPosters);
+
+            return categoriaPosteres;
+        }
     }
 }

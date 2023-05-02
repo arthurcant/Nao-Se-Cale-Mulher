@@ -10,15 +10,20 @@ namespace API_SITE_Mulher.Business.Implementations
     public class CategoriasBusinessImplementation : ICategoriasBusiness
     {
         private readonly CategoriaConverter _categoriaConverter;
-        private readonly ICategoriaRepository categoriaRepository;
+        private readonly PosterConverter _posterConverter;
+        private readonly ICategoriaRepository _categoriaRepository;
         private readonly IRepository<tb_categoria_de_posteres> _repository;
 
         public CategoriasBusinessImplementation(
-            CategoriaConverter categoriaConverter, 
+            CategoriaConverter categoriaConverter,
+            ICategoriaRepository categoriaRepository,
+            PosterConverter posterConverter,
             IRepository<tb_categoria_de_posteres> repository)
         {
             _categoriaConverter = categoriaConverter;
             _repository = repository;
+            _categoriaRepository = categoriaRepository;
+            _posterConverter = posterConverter;
         }
 
         public CategoriasDePosters Create(CategoriasDePosters categoriasDePosters)
@@ -71,10 +76,15 @@ namespace API_SITE_Mulher.Business.Implementations
             _repository.DeleteById(id);
         }
 
-        public bool AddCategoriasParaPoster(int idPoster, IdsCategoria idsCategoria)
+        public bool AddCategoriasParaPoster(int idPoster, int idCategoria)
         {
-            var result = categoriaRepository.AddCategoriasParaPoster(idPoster, idsCategoria);
+            var result = _categoriaRepository.AddCategoriasParaPoster(idPoster, idCategoria);
             return result;
+        }
+
+        public IQueryable<ICollection<tb_poster>?> GetPosteresByIdCategoria(int id, tb_usuario user)
+        {
+            return _categoriaRepository.GetPosteresByIdCategoria(id);
         }
     }
 }

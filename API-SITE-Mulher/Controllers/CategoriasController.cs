@@ -1,6 +1,7 @@
 ﻿using API_SITE_Mulher.Business;
 using API_SITE_Mulher.Data.VO;
 using API_SITE_Mulher.Model;
+using API_SITE_Mulher.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,12 +16,16 @@ namespace API_SITE_Mulher.Controllers
     public class CategoriasController : ControllerBase
     {
         private ICategoriasBusiness _categoriasBusiness;
+        private IUsersRepository _repository;
         private ILogger<CategoriasController> _logger;
 
-        public CategoriasController(ICategoriasBusiness categoriasBusiness, ILogger<CategoriasController> logger)
+        public CategoriasController(ICategoriasBusiness categoriasBusiness,
+            ILogger<CategoriasController> logger,
+            IUsersRepository repository)
         {
             _categoriasBusiness = categoriasBusiness;
             _logger = logger;
+            _repository = repository;
         }
 
         [HttpGet("{sortDirection}/{pageSize}/{page}")]
@@ -37,6 +42,20 @@ namespace API_SITE_Mulher.Controllers
             return Ok(_categoriasBusiness.FindWithPagedSearch(name, sortDirection, pageSize, page));
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetPosteresByIdCategoria(int id)
+        {
+            if(id <= 0) return BadRequest("Invalid Request");
+
+            var tb_Usuario = _repository.ValidateCredentials(User.Identity.Name);
+
+            var posteres = _categoriasBusiness.GetPosteresByIdCategoria(id, tb_Usuario);
+
+            if (posteres == null) return BadRequest("Invalid Request");
+
+            return Ok(posteres);
+        }
+
         [HttpPost]
         [Route("registercategoria")]
         public IActionResult CreateCategoria([FromBody] CategoriasDePosters categoria) { 
@@ -50,12 +69,12 @@ namespace API_SITE_Mulher.Controllers
             return Ok(categoriaCriada);
         }
 
-        [HttpPost("{idPoster}")]
-        public IActionResult AddCategoriasParaPoster([FromBody] IdsCategoria ids, int idPoster = 0)
+        [HttpGet("{idPoster}/{idCategoria}")]
+        public IActionResult AddCategoriasParaPoster(int idPoster, int idCategoria)
         {
-            if(idPoster == 0 && ids is null) return BadRequest("Invalid Request");
+            if(idPoster <= 0 && idCategoria <= 0) return BadRequest("Invalid Request");
 
-            bool result = _categoriasBusiness.AddCategoriasParaPoster(idPoster, ids);
+            bool result = _categoriasBusiness.AddCategoriasParaPoster(idPoster, idCategoria);
 
             if (!result) return BadRequest("Invalid Request");
 
@@ -74,8 +93,8 @@ namespace API_SITE_Mulher.Controllers
             return Ok(categoriaAtualizada);
         }
 
-        [HttpDelete("{idcategoria}")]
-        public IActionResult DeleteCategoria(int idcategoria)
+        [HttpDelete("{idposter}/{idcategoria}")]
+        public IActionResult DeleteCategoria(int idposter, int idcategoria)
         {
             _categoriasBusiness.Delete(idcategoria);
             return NoContent();

@@ -40,9 +40,9 @@ namespace API_SITE_Mulher.Data.Converter.Implementations
 
             if (!(origin.Tags is null))
             {
-                tb_categoria_de_posteres categoria_De_Posteres = new tb_categoria_de_posteres();
                 foreach (var item in origin.Tags)
                 {
+                    tb_categoria_de_posteres categoria_De_Posteres = new tb_categoria_de_posteres();
                     categoria_De_Posteres.Id = item.Id ?? 0;
                     categoria_De_Posteres.NomeCategoria = item.NomeCategoria;
                     categoria_De_Posteres.NomeTag = item.NomeTag;
@@ -68,9 +68,9 @@ namespace API_SITE_Mulher.Data.Converter.Implementations
 
             if(!(origin.tbCategoriaDePosteres is null))
             {
-                CategoriasDePosters categoria_De_Posteres = new CategoriasDePosters();
-                foreach (var item in origin.tbCategoriaDePosteres)
+                foreach (tb_categoria_de_posteres? item in origin.tbCategoriaDePosteres.ToList())
                 {
+                    CategoriasDePosters categoria_De_Posteres = new CategoriasDePosters();
                     categoria_De_Posteres.Id = item.Id;
                     categoria_De_Posteres.NomeCategoria = item.NomeCategoria;
                     categoria_De_Posteres.NomeTag = item.NomeTag;
