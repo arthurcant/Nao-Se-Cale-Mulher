@@ -1,4 +1,5 @@
 ﻿using API_SITE_Mulher.Business;
+using API_SITE_Mulher.Data.VO;
 using API_SITE_Mulher.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -23,6 +24,10 @@ namespace API_SITE_Mulher.Controllers
         }
 
         [HttpGet("{sortDirection}/{pageSize}/{page}")]
+        [ProducesResponseType(200, Type = typeof(PagedSearchVO<CategoriasDePosters>))]
+        [ProducesResponseType(203)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Get(
             [FromQuery] string? name,
             string sortDirection,

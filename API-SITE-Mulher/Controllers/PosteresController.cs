@@ -26,6 +26,10 @@ namespace API_SITE_Mulher.Controllers
         }
 
         [HttpGet("{sortDirection}/{pageSize}/{page}")]
+        [ProducesResponseType(200, Type = typeof(PagedSearchVO<Poster>))]
+        [ProducesResponseType(203)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Get(
             string sortDirection,
             int pageSize,
@@ -68,11 +72,12 @@ namespace API_SITE_Mulher.Controllers
             return Ok(posterUpdated);
         }
 
-        [HttpDelete("{id}")]
-        [Route("deleteposter")]
-        public IActionResult DeletePoster(int id)
+        [HttpGet("{id}")]
+        public IActionResult DeletePoster(long id)
         {
-            _posteresBusiness.DeleteById(id);
+            if (id <= 0) return BadRequest();
+
+            _posteresBusiness.DeleteById((int)id);
             return NoContent();
         }
 
