@@ -40,9 +40,10 @@ namespace API_SITE_Mulher.Repository
 
         public tb_categoria_de_posteres foundCategoriaById(int id) => _context.tb_Categoria_De_Posteres.FirstOrDefault(t => t.Id == id);
 
-        public IQueryable<ICollection<tb_poster>?> GetPosteresByIdCategoria(int id)
+        public List<List<tb_poster>> GetPosteresByIdCategoria(int id)
         {
-            IQueryable<ICollection<tb_poster>?> categoriaPosteres = _context.tb_Categoria_De_Posteres.Include(c => c.tbPosters).Where(c => c.Id == id).Select(p => p.tbPosters);
+            List<List<tb_poster>> categoriaPosteres = _context.tb_Categoria_De_Posteres
+                .Include(c => c.tbPosters).Where(c => c.Id == id).Select(p => p.tbPosters.ToList()).ToList();
 
             return categoriaPosteres;
         }

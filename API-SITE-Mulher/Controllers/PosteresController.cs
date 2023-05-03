@@ -13,7 +13,6 @@ namespace API_SITE_Mulher.Controllers
     [Authorize("Bearer")]
     public class PosteresController : ControllerBase
     {
-
         private readonly ILogger<Poster> _logger;
         private IUsersRepository _repository;
         private IPosteresBusiness _posteresBusiness;
@@ -34,8 +33,7 @@ namespace API_SITE_Mulher.Controllers
             string sortDirection,
             int pageSize,
             int page,
-            [FromQuery] string? title
-            )
+            [FromQuery] string? title)
         {
             var tb_Usuario = _repository.ValidateCredentials(User.Identity.Name);
             return Ok(_posteresBusiness.FindWithPagedSearch(sortDirection, pageSize, page, tb_Usuario, title));
