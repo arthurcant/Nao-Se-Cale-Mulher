@@ -3,7 +3,8 @@ import { Topbar } from '../components/Topbar'
 import { SearchBar } from '../components/SearchBar'
 import { Footer } from '../components/Footer'
 import { BoxCategory } from '../components/BoxCategory'
-import { FaArrowRight } from 'react-icons/fa';
+import { Pagination } from '../components/Pagination'
+
 
 export function Categories(){
     return(
@@ -26,10 +27,7 @@ export function Categories(){
                                     <BoxCategory />
                                     <BoxCategory />
 
-                                    <div className="items-center gap-3 flex flex-row">
-                                        <span>1 2 3 4...</span>
-                                        <FaArrowRight className="text-lg"/>
-                                    </div>
+                                    <Pagination/>
                                 </div>
                             </div>
                         </div>

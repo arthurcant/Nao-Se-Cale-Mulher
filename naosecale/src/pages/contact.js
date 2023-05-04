@@ -2,6 +2,7 @@ import { Box } from '../components/Box'
 import { Topbar } from '../components/Topbar'
 import { Footer } from '../components/Footer'
 import { FaHome, FaPhoneAlt, FaFlag, FaInfoCircle, FaExclamationTriangle, FaSearch,FaArrowRight } from 'react-icons/fa';
+import { Pagination } from '../components/Pagination'
 
 export function Contact() {
     return(
@@ -40,10 +41,8 @@ export function Contact() {
                             <a href="/contacts">Lorem Ipsum Av.Lorem Ipsum........................(99)99999-9999</a>
                             <a href="/contacts">Lorem Ipsum Av.Lorem Ipsum........................(99)99999-9999</a>
                         </div>
-                        <div className="text-center items-center gap-3 flex flex-row ml-[45%] my-6">
-                            <span>1 2 3 4...</span>
-                            <FaArrowRight className="text-lg"/>
-                        </div>
+                        
+                        <Pagination/>
                     </div>
                 </div>
 
