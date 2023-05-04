@@ -12,10 +12,12 @@ namespace API_SITE_Mulher.Controllers
     public class AutenticacaoController : ControllerBase
     {
         private ILoginBusiness _loginBusiness;
+        private ILogger<AutenticacaoController> _logger;
 
-        public AutenticacaoController(ILoginBusiness loginBusiness)
+        public AutenticacaoController(ILoginBusiness loginBusiness, ILogger<AutenticacaoController> logger)
         {
             _loginBusiness = loginBusiness;
+            _logger = logger;
         }
 
         [HttpPost]
@@ -49,7 +51,9 @@ namespace API_SITE_Mulher.Controllers
         public IActionResult Refresh([FromBody] TokenVO tokenVo)
         {
             if (tokenVo is null) return BadRequest("Invalid client request");
+
             var token = _loginBusiness.ValidateCredentials(tokenVo);
+
             if (token is null) return BadRequest("Invalid client request");
 
             return Ok(token);

@@ -41,38 +41,6 @@ namespace API_SITE_Mulher.Data.FillingEntities
             return tbUsuario;
         }
 
-        public tb_poster FillingEntityTbPoster(PosterRegisterVO posterRegisterVO, string email)
-        {
-            tb_poster tbPoster = new tb_poster();
-            try
-            {
-
-                tbPoster.Titulo = posterRegisterVO.Titulo;
-                tbPoster.Descricao = posterRegisterVO.Descricao;
-                tbPoster.Conteudo = posterRegisterVO.Conteudo;
-                tbPoster.DataDaPublicacao = DateTime.Now;
-                tbPoster.Autor = _repository.ValidateCredentials(email);
-                tbPoster.AutorId = 3;
-
-                var tbCategorias = new tb_categoria_de_posteres();
-                foreach (var item in posterRegisterVO.Tags)
-                {
-                    tbCategorias.Id = item.Id;
-                    tbCategorias.NomeCategoria = item.NomeCategoria;
-                    tbCategorias.NomeTag = item.NomeTag;
-
-                    tbPoster.tb_Detalhes_Do_Poster.tb_Categoria_De_Posteres.Add(tbCategorias);
-                }
-                return tbPoster;   
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-
-            return tbPoster;  
-        }
 
     }
 }

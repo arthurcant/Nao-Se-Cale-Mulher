@@ -30,9 +30,9 @@ namespace API_SITE_Mulher.Repository.Implementations
             return item;
         }
 
-        public void DeleteById(long id)
+        public void DeleteById(int id)
         {
-            var result = dataset.SingleOrDefault((t) => t.Id.Equals(id));
+            var result = dataset.FirstOrDefault((t) => t.Id == id);
             if (result != null)
             {
                 try

@@ -1,11 +1,12 @@
 ﻿using API_SITE_Mulher.Model.Context;
 using API_SITE_Mulher.Model.Domain;
 using API_SITE_Mulher.Repository.Implementations;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace API_SITE_Mulher.Repository
 {
-    public class PosteresRepository : GenericRepository<tb_poster> , IPosteresRepository
+    public class PosteresRepository : GenericRepository<tb_poster>, IPosteresRepository
     {
 
         public PosteresRepository(MySQLContext context) : base(context) { }
@@ -32,5 +33,9 @@ namespace API_SITE_Mulher.Repository
            return _context.tb_posters.Where(p => p.Titulo.Contains(title)).ToList();
         }
 
+        public List<tb_poster> FindWithPagedSearchPosteres(string query)
+        {
+            return _context.tb_posters.FromSqlRaw(query).Include(p => p.tbCategoriaDePosteres).ToList();
+        }
     }
 }

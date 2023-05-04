@@ -1,5 +1,6 @@
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Não-Se-Cale-Mulher\API-SITE-Mulher\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Não-Se-Cale-Mulher\API-SITE-Mulher\bin\Debug\net6.0\appsettings.json
+C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Não-Se-Cale-Mulher\API-SITE-Mulher\bin\Debug\net6.0\libman.json
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Não-Se-Cale-Mulher\API-SITE-Mulher\bin\Debug\net6.0\API-SITE-Mulher.exe
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Não-Se-Cale-Mulher\API-SITE-Mulher\bin\Debug\net6.0\API-SITE-Mulher.deps.json
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Não-Se-Cale-Mulher\API-SITE-Mulher\bin\Debug\net6.0\API-SITE-Mulher.runtimeconfig.json
@@ -111,3 +112,4 @@ C:\Users\joaum\OneDrive\Documentos\Thur Thur\Nao-Se-Cale\API-SITE-Mulher\obj\Deb
 C:\Users\joaum\OneDrive\Documentos\Thur Thur\Nao-Se-Cale\API-SITE-Mulher\obj\Debug\net6.0\API-SITE-Mulher.pdb
 C:\Users\joaum\OneDrive\Documentos\Thur Thur\Nao-Se-Cale\API-SITE-Mulher\obj\Debug\net6.0\API-SITE-Mulher.genruntimeconfig.cache
 C:\Users\joaum\OneDrive\Documentos\Thur Thur\Nao-Se-Cale\API-SITE-Mulher\obj\Debug\net6.0\ref\API-SITE-Mulher.dll
+C:\Users\joaum\OneDrive\Documentos\Thur Thur\Nao-Se-Cale\API-SITE-Mulher\bin\Debug\net6.0\libman.json

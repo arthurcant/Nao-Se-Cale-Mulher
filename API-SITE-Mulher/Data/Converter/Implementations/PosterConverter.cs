@@ -1,4 +1,5 @@
-﻿using API_SITE_Mulher.Data.Converter.Contract;
+﻿using API_SITE_Mulher.Controllers;
+using API_SITE_Mulher.Data.Converter.Contract;
 using API_SITE_Mulher.Data.VO;
 using API_SITE_Mulher.Model;
 using API_SITE_Mulher.Model.Domain;
@@ -8,10 +9,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API_SITE_Mulher.Data.Converter.Implementations
 {
-    public class PosterConverter : ControllerBase , IParser<tb_poster, Poster>, IParser<Poster, tb_poster>
+    public class PosterConverter : IParserPosteres<tb_poster, Poster>, IParserPosteres<Poster, tb_poster>
     {
-        private IUsersRepository _repository;
-        private UsuarioConverter _usuarioConverter;
+        private readonly IUsersRepository _repository;
+        private UsuarioConverter _usuarioConverter = new UsuarioConverter();
 
         public PosterConverter()
         {
@@ -20,75 +21,77 @@ namespace API_SITE_Mulher.Data.Converter.Implementations
         public PosterConverter(IUsersRepository repository)
         {
             _repository = repository;
-            _usuarioConverter = new UsuarioConverter();
         }
 
-        public tb_poster Parse(Poster origin)
+        // TODO: Refatora essa a classe PosterConverter
+
+        public tb_poster Parse(Poster origin, tb_usuario tbUsuario)
         {
             if (origin is null) return null;
 
             tb_poster tbPoster = new tb_poster();
+            tbPoster.Id = origin.Id;
             tbPoster.Titulo = origin.Titulo;
             tbPoster.Descricao = origin.Descricao;
             tbPoster.Conteudo = origin.Conteudo;
             tbPoster.DataDaPublicacao = DateTime.Now;
-            var email = User.Identity.Name;
-            tbPoster.Autor = _repository.ValidateCredentials(email);
-            tbPoster.AutorId = tbPoster.Autor.Id;
+            tbPoster.tbUsuarios = tbUsuario;
+            //tbPoster.id_usuario = tbPoster.tb_usuarioAutor.Id;
 
-            // TODO: Debito tecnico fazer uma converção usando PosterConverter.
-            tb_categoria_de_posteres tbCategoriaDePosteres = new tb_categoria_de_posteres();
-            foreach (var item in origin.Tags)
+            if (!(origin.Tags is null))
             {
-
-                tbCategoriaDePosteres.Id = item.Id;
-                tbCategoriaDePosteres.NomeCategoria = item.NomeCategoria;
-                tbCategoriaDePosteres.NomeTag = item.NomeTag;
-
-                tbPoster.tb_Detalhes_Do_Poster.tb_Categoria_De_Posteres.Add(tbCategoriaDePosteres);
+                foreach (var item in origin.Tags)
+                {
+                    tb_categoria_de_posteres categoria_De_Posteres = new tb_categoria_de_posteres();
+                    categoria_De_Posteres.Id = item.Id ?? 0;
+                    categoria_De_Posteres.NomeCategoria = item.NomeCategoria;
+                    categoria_De_Posteres.NomeTag = item.NomeTag;
+                    tbPoster.tbCategoriaDePosteres.Add(categoria_De_Posteres);
+                }
             }
 
             return tbPoster;
         }
 
-        public Poster Parse(tb_poster origin)
+        public Poster Parse(tb_poster origin, tb_usuario tbUsuario)
         {
             if (origin is null) return null;
 
             Poster poster = new Poster();
+            poster.Id = origin.Id;
             poster.Titulo = origin.Titulo;
             poster.Descricao = origin.Descricao;
             poster.Conteudo = origin.Conteudo;
             poster.DataDaPublicacao = DateTime.Now;
-            var email = User.Identity.Name;
-            poster.Autor = _usuarioConverter.Parse(_repository.ValidateCredentials(email));
-            poster.Id_usuario = poster.Autor.Id;
+            poster.UsuarioAutor = _usuarioConverter.Parse(tbUsuario);
+            poster.Id_usuario = poster.UsuarioAutor.Id;
 
-            CategoriasDePosters categoriasDePosters = new CategoriasDePosters();
-            foreach (var item in origin.tb_Detalhes_Do_Poster.tb_Categoria_De_Posteres)
+            if(!(origin.tbCategoriaDePosteres is null))
             {
-                categoriasDePosters.Id = item.Id;
-                categoriasDePosters.NomeCategoria = item.NomeCategoria;
-                categoriasDePosters.NomeTag = item.NomeTag;
-
-                poster.Tags.Add(categoriasDePosters);
+                foreach (tb_categoria_de_posteres? item in origin.tbCategoriaDePosteres.ToList())
+                {
+                    CategoriasDePosters categoria_De_Posteres = new CategoriasDePosters();
+                    categoria_De_Posteres.Id = item.Id;
+                    categoria_De_Posteres.NomeCategoria = item.NomeCategoria;
+                    categoria_De_Posteres.NomeTag = item.NomeTag;
+                    poster.Tags.Add(categoria_De_Posteres);
+                }
             }
-
             return poster;
         }
 
-        public List<Poster> Parse(List<tb_poster> origin)
+        public List<Poster> Parse(List<tb_poster> origin, tb_usuario tbUsuario)
         {
             if (origin is null) return null;
 
-            return origin.Select(item => Parse(item)).ToList();
+            return origin.Select(item => Parse(item, tbUsuario)).ToList();
         }
 
-        public List<tb_poster> Parse(List<Poster> origin)
+        public List<tb_poster> Parse(List<Poster> origin, tb_usuario tbUsuario)
         {
             if (origin is null) return null;
 
-            return origin.Select(item => Parse(item)).ToList();
+            return origin.Select(item => Parse(item, tbUsuario)).ToList();
         }
     }
 }

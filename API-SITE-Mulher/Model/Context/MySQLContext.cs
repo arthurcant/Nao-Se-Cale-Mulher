@@ -11,7 +11,9 @@ namespace API_SITE_Mulher.Model.Context
 
         public DbSet<tb_usuario> tb_usuarios { get; set; }
         public DbSet<tb_poster> tb_posters { get; set; }
-        public  DbSet<tb_detalhes_do_poster> tb_detalhes_do_posters { get; set; }
         public DbSet<tb_categoria_de_posteres> tb_Categoria_De_Posteres { get; set; }
+
+
+
     }
 }

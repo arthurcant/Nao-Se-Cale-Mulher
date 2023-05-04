@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "07qcaCFq5BYxxc/ME9ghY1+HZD4gBtFjkG9iRF8RcEoj9TmKS+4L+RfE4wo1c4mKhiCjKPLggfcnFmUqPfkxig==",
+  "dgSpecHash": "cOBs4i6+D4EykeB0Ga3wpcln3Wn5hC1krteisG77+6z2d4h1ruN7oe5BAaCXw+H8c+OhKYkAEzkhgsdZHHefVA==",
   "success": true,
   "projectFilePath": "C:\\Users\\joaum\\OneDrive\\Documentos\\Thur Thur\\Nao-Se-Cale\\API-SITE-Mulher\\API-SITE-Mulher.csproj",
   "expectedPackageFiles": [
@@ -35,6 +35,7 @@
     "C:\\Users\\joaum\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.15\\microsoft.entityframeworkcore.design.6.0.15.nupkg.sha512",
     "C:\\Users\\joaum\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.15\\microsoft.entityframeworkcore.relational.6.0.15.nupkg.sha512",
     "C:\\Users\\joaum\\.nuget\\packages\\microsoft.entityframeworkcore.relational.design\\1.1.1\\microsoft.entityframeworkcore.relational.design.1.1.1.nupkg.sha512",
+    "C:\\Users\\joaum\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\6.0.0\\microsoft.entityframeworkcore.tools.6.0.0.nupkg.sha512",
     "C:\\Users\\joaum\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\joaum\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\joaum\\.nuget\\packages\\microsoft.extensions.caching.memory\\6.0.1\\microsoft.extensions.caching.memory.6.0.1.nupkg.sha512",
@@ -146,5 +147,12 @@
     "C:\\Users\\joaum\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\joaum\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema ao ler o arquivo de cache C:\\Users\\joaum\\OneDrive\\Documentos\\Thur Thur\\Nao-Se-Cale\\API-SITE-Mulher\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
