@@ -48,7 +48,7 @@ namespace API_SITE_Mulher.Controllers
 
         [HttpPost]
         [Route("refresh")]
-        public IActionResult Refresh([FromBody] TokenVO tokenVo)
+        public IActionResult Refresh([FromBody] RefreshTokenVO tokenVo)
         {
             if (tokenVo is null) return BadRequest("Invalid client request");
 
@@ -58,7 +58,6 @@ namespace API_SITE_Mulher.Controllers
 
             return Ok(token);
         }
-
 
         [HttpGet]
         [Route("revoke")]

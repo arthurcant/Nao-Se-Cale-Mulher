@@ -70,7 +70,7 @@ namespace API_SITE_Mulher.Business.Implementations
                 refreshToken);
         }
 
-        public TokenVO ValidateCredentials(TokenVO token)
+        public TokenVO ValidateCredentials(RefreshTokenVO token)
         {
             var accessToken = token.AccessToken;
             var refreshToken = token.RefreshToken;

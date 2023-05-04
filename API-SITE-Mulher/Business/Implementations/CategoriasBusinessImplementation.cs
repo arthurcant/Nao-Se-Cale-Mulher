@@ -82,9 +82,11 @@ namespace API_SITE_Mulher.Business.Implementations
             return result;
         }
 
-        public IQueryable<ICollection<tb_poster>?> GetPosteresByIdCategoria(int id, tb_usuario user)
+        public List<Poster> GetPosteresByIdCategoria(int id, tb_usuario user)
         {
-            return _categoriaRepository.GetPosteresByIdCategoria(id);
+            var listOfListPoteres = _categoriaRepository.GetPosteresByIdCategoria(id);
+            var listposteres = listOfListPoteres.SelectMany(p => p).ToList();
+            return _posterConverter.Parse(listposteres, user);
         }
     }
 }

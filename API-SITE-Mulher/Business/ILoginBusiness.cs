@@ -6,7 +6,7 @@ namespace API_SITE_Mulher.Business
     public interface ILoginBusiness
     {
         TokenVO ValidateCredentials(UserVO userCredentials);
-        TokenVO ValidateCredentials(TokenVO token);
+        TokenVO ValidateCredentials(RefreshTokenVO token);
         Usuario RegisterUser(UsuarioRegisterVO user);
         bool RevokeToken(string userName);
     }

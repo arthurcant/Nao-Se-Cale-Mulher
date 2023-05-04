@@ -7,7 +7,7 @@ namespace API_SITE_Mulher.Repository
     {
         bool AddCategoriasParaPoster(int idPoster, int idCategoria);
         List<tb_categoria_de_posteres> FindWithPagedSearchCategorias(string query);
-        IQueryable<ICollection<tb_poster>?> GetPosteresByIdCategoria(int id);
+        List<List<tb_poster>> GetPosteresByIdCategoria(int id);
 
         tb_categoria_de_posteres foundCategoriaById(int id);
     }

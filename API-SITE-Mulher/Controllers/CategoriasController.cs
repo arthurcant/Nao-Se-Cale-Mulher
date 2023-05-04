@@ -12,7 +12,6 @@ namespace API_SITE_Mulher.Controllers
     [Route("api/[controller]/v{version:apiVersion}")]
     [ApiController]
     [Authorize("Bearer")]
-
     public class CategoriasController : ControllerBase
     {
         private ICategoriasBusiness _categoriasBusiness;
