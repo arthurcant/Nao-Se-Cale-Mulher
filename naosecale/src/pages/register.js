@@ -45,9 +45,6 @@ export function Register(){
                                         <option value="masc">Masculino</option>
                                         <option value="fem">Feminino</option>
                                         <option value="gay">Gay</option>
-                                        <option value="viado">Viado</option>
-                                        <option value="fresco">Fresco</option>
-                                        <option value="muito-fresco">Gustavo Xavier</option>
                                     </select>
                                 </div>
                             </div>

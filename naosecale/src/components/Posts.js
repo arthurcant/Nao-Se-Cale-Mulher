@@ -5,7 +5,7 @@ export function Posts() {
     return(
         <div>
             <div className="border-solid border-2 p-40 lg:m-5 shadow-xl">
-                <img classname="object-cover" src=""/>
+                <img classname="object-cover" src="img/Mulher.png"/>
             </div>
 
             <div className="mt-0 ml-5  font-weight: 900">

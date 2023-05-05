@@ -17,12 +17,11 @@ export function Login(){
                         </div>
 
                         <div className="text-ml justify-center items-center gap-2">
-                            <div>
-                                <textarea placeholder="....Email ou Telefone" className="w-full border-2 rounded-lg p-2"/> 
-                            </div>
+                
+                            <div className="flex flex-col lg:flex-row w-full gap-5">
+                                <input type='text' placeholder="Nome" className="lg:w-[50%] border-2 rounded-lg p-2"/> 
 
-                            <div>
-                                <textarea placeholder="....Senha" className="w-full border-2 rounded-lg p-2"/> 
+                                <input type='text' placeholder="Sobrenome" className="lg:w-[50%] border-2 rounded-lg p-2"/> 
                             </div>
 
                             <div className="mt-[15%] text-center border-solid border-2 rounded-lg p-2 bg-[#a6024f] text-white text-2xl">

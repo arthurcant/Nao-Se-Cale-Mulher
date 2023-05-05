@@ -5,6 +5,7 @@ import { Categories } from './pages/categories'
 import { Login } from './pages/login'
 import { Register } from './pages/register'
 import { Write } from './pages/write'
+import { Open } from './pages/open'
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from 'react'
   
@@ -43,6 +44,7 @@ export default function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/write" element={<Write />} />
+      <Route path="/open" element={<Open />} />
     </Routes>
   );
 }
