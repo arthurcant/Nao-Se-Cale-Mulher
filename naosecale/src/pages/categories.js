@@ -20,14 +20,13 @@ export function Categories(){
                                 
                                 <SearchBar/>
 
-                                <div className="flex flex-col w-[80%] justify-center items-center gap-3 mt-[5%]">
-                                    <BoxCategory />
+                                <div className="flex flex-col w-[80%] justify-center items-center gap-3 lg:mt-[2.5%] mt-[5%]">
                                     <BoxCategory />
                                     <BoxCategory />
                                     <BoxCategory />
                                     <BoxCategory />
 
-                                    <Pagination/>
+                                    <div className="lg:mt-[2.5%]"><Pagination/></div>
                                 </div>
                             </div>
                         </div>

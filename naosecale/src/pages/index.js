@@ -2,6 +2,7 @@ import { Box } from '../components/Box'
 import { Footer } from '../components/Footer'
 import { Topbar } from '../components/Topbar'
 import { Pagination } from '../components/Pagination'
+import { Posts } from '../components/Posts'
 
 import { FaHome, FaPhoneAlt, FaFlag, FaInfoCircle, FaExclamationTriangle, FaSearch, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 
@@ -18,32 +19,11 @@ export function Index() {
                 <div className="flex flex-col lg:flex-row items-start justify-between shadow-xl bg-[#FFDEF6]">
                     <div className="ml-7 border-solid border-2 rounded-lg shadow-xl lg:p-20 p-10 pt-10 lg:mt-16 bg-white">
 
-                    <div className="border-solid border-2 p-40 lg:m-5 shadow-xl lg:mt-10"></div>
-
-                        <div className="m-0 ml-5 font-weight: 900">
-                            <span>Autor: 19 DE FEVEREIRO DE 2023</span>
-                            <div className="font-weight:900 mt-0">
-                                <span>Título</span>
-                            </div>
-                        </div>
-                        
-                        <div className="m-5">
-                            <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</a>
-                        </div>
-
-                        <div className="border-solid border-2 p-40 lg:m-5 shadow-xl"></div>
-
-                        <div className="mt-0 ml-5  font-weight: 900">
-                            <span>Autor: 19 DE FEVEREIRO DE 2023</span>
-                            <div className="font-weight:900 mt-0">
-                                <span>Título</span>
-                            </div>
-                        </div>
-                        <div className="m-5 ">
-                            <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</a>
-                        </div>
-
-                    <Pagination/>
+                        <Posts/>
+                        <Posts/>
+                        <Posts/>
+                        <Posts/>
+                        <div className="ml-[40%]"><Pagination/></div>
 
                     </div>
 

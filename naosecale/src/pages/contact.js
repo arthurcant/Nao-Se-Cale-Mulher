@@ -40,9 +40,10 @@ export function Contact() {
                             <a href="/contacts">Lorem Ipsum Av.Lorem Ipsum........................(99)99999-9999</a>
                             <a href="/contacts">Lorem Ipsum Av.Lorem Ipsum........................(99)99999-9999</a>
                             <a href="/contacts">Lorem Ipsum Av.Lorem Ipsum........................(99)99999-9999</a>
+
+                            <div className="mt-[5%]"><Pagination/></div>
                         </div>
                         
-                        <Pagination/>
                     </div>
                 </div>
 
