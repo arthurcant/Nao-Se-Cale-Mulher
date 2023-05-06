@@ -10,30 +10,16 @@ import Popover from '@mui/material/Popover';
 import Button from '@mui/material/Button';
 import { Typography } from "@mui/material";
 
-export function Topbar(){
 
-    /*const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
-    
-    const handelClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setAnchorEl(event.currentTarget)
-    }
-
-    const handleClose = () => {
-        setAnchorEl(null)
-    }
-
-    const open = Boolean(anchorEl)
-    const id = open ? 'simple-popover' : undefined;
-    */
-
-    return(
-        <div className="flex flex-row w-full items-center justify-between py-7 shadow-xl text-white bg-[#6b0023] px-10">
+export function Topbar() {
+    return (
+        <div className="flex flex-row w-full  items-center justify-between shadow-xl text-white bg-[#6b0023] px-10 py-7 lg:py-0">
             <div className="italic font-extrabold items-center text-xl lg:text-2xl">
                 <Link to="/"><span className="hidden lg:flex">Não Se Cale !</span></Link>
                 <Link to="/"><span className="flex lg:hidden">NSC!</span></Link>
             </div>
 
-            <SearchBar/>
+            <SearchBar />
 
             <div className="hidden lg:flex gap-4">
                 <Link to="/">
@@ -73,8 +59,8 @@ export function Topbar(){
             </div>
 
             <div className="flex lg:hidden">
-                <Hamburguer/>
+                <Hamburguer />
             </div>
-      </div>
+        </div>
     )
 }

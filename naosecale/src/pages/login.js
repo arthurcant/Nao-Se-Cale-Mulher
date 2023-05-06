@@ -7,8 +7,7 @@ import { Topbar } from '../components/Topbar'
 
 export function Login(){
     return(
-        <div>
-            <Topbar/>
+        <>
             <div className="bg-black">
 
                 <div className="flex flex-row h-screen lg:flex-row items-center justify-center shadow-xl bg-[#FFDEF6]">
@@ -52,6 +51,6 @@ export function Login(){
 
             </div>
             <Footer/>
-        </div>
+        </>
     )
 }

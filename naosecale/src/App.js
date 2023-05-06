@@ -8,11 +8,12 @@ import { Write } from './pages/write'
 import { Open } from './pages/open'
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from 'react'
-  
+import { ChakraProvider } from '@chakra-ui/react'
+
 
 export default function App() {
 
-  const [itens, setItens] = useState ([])
+  const [itens, setItens] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,7 +21,7 @@ export default function App() {
         .then(response => response.json())
         .then(data => data)
 
-     setItens(result)
+      setItens(result)
     }
     fetchData()
   }, [])
@@ -36,16 +37,18 @@ export default function App() {
   */
 
   return (
-    <Routes>
-      <Route path="/" element={<Index />} />
-      <Route path="/sobre" element={<About />} />
-      <Route path="/contato" element={<Contact />} />
-      <Route path="/categories" element={<Categories />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/write" element={<Write />} />
-      <Route path="/open" element={<Open />} />
-    </Routes>
+    <ChakraProvider>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/sobre" element={<About />} />
+        <Route path="/contato" element={<Contact />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/write" element={<Write />} />
+        <Route path="/open" element={<Open />} />
+      </Routes>
+    </ChakraProvider>
   );
 }
 
