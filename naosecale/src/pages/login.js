@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { Box } from '../components/Box'
 import { Footer } from '../components/Footer'
 import { Topbar } from '../components/Topbar'
@@ -24,17 +26,22 @@ export function Login(){
                                 <input type='text' placeholder="Sobrenome" className="lg:w-[50%] border-2 rounded-lg p-2"/> 
                             </div>
 
+                        <Link to="/">
                             <div className="mt-[15%] text-center border-solid border-2 rounded-lg p-2 bg-[#a6024f] text-white text-2xl">
                                 <span>Entrar</span>
                             </div>
+                        </Link>
 
+                            
                             <div className="text-md text-black lg:my-[5%]">
                                 <span>Esqueceu a Conta ?</span>
                             </div>
 
+                        <Link to="/register">
                             <div className="text-center border-solid border-2 rounded-lg p-2 bg-[#a6024f] text-white text-2xl">
                                 <span>Criar uma Conta</span>
                             </div>
+                        </Link>
 
                         </div>
 
