@@ -9,13 +9,13 @@ export function Register(){
             <div className="bg-black">
 
                 <div className="flex flex-row h-screen lg:flex-row items-center justify-center shadow-xl bg-[#FFDEF6]">
-                    <div className="flex flex-col justify-center items-center bg-white rounded-lg lg:h-[65%] lg:w-[50%] w-full">
+                    <div className="flex flex-col justify-center items-center bg-white rounded-lg lg:h-[75%] lg:w-[50%] w-full">
 
-                        <div className="italic font-extrabold text-3xl text-[#6b0023] lg:mt-[2.5%] mt-[5%]">
+                        <div className="italic font-extrabold text-3xl text-[#6b0023] lg:mt-[5%] mt-[5%]">
                             <span>Não se Cale !</span>
                         </div>
 
-                        <div className=" flex flex-col w-[50%] justify-start items-center lg:mt-[5%] mt-[10%] gap-5 py-10">
+                        <div className=" flex flex-col w-[50%] justify-start items-center lg:mt-[1%] mt-[10%] gap-5 py-10">
                             <div className="flex flex-col lg:flex-row w-full gap-5">
                                 <input type='text' placeholder="Nome" className="lg:w-[50%] border-2 rounded-lg p-2"/> 
 

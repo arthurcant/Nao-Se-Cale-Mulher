@@ -32,10 +32,11 @@ export function Login(){
                             </div>
                         </Link>
 
-                            
-                            <div className="text-md text-black lg:my-[5%]">
-                                <span>Esqueceu a Conta ?</span>
+                        <Link to="https://www.youtube.com/watch?v=SKg-WkkBCfM">
+                            <div className="text-md text-black lg:my-[5%] text-center">
+                                <button>Esqueceu a Conta ?</button>
                             </div>
+                        </Link>
 
                         <Link to="/register">
                             <div className="text-center border-solid border-2 rounded-lg p-2 bg-[#a6024f] text-white text-2xl">
