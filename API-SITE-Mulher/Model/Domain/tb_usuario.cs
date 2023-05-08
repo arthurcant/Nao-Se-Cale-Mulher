@@ -28,7 +28,7 @@ namespace API_SITE_Mulher.Model.Domain
         public int Role { get; set; }
 
         [Column("refresh_token")]
-        public string RefreshToken { get; set; }
+        public string? RefreshToken { get; set; }
 
         [Column("refresh_token_expiry_time")]
         public DateTime RefreshTokenExpiryTime { get; set; }
