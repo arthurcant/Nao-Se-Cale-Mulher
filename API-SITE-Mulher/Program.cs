@@ -111,7 +111,7 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
 builder.Services.AddCors(options => options.AddDefaultPolicy(builder =>
 {
-    builder.AllowAnyMethod()
+    builder.AllowAnyOrigin()
     .AllowAnyMethod()
     .AllowAnyHeader();
 }));
@@ -127,13 +127,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseSwagger();
 
 app.UseHttpsRedirection();
 
 app.UseRouting();
 
 app.UseCors();
+
+app.UseSwagger();
 
 app.UseSwaggerUI(c =>
 {

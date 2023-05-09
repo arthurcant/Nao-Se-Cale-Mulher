@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\arthu\\OneDrive - Scai Hub\\Área de Trabalho\\projetos\\Não-Se-Cale-Mulher\\API-SITE-Mulher\\API-SITE-Mulher.csproj": {}
+    "C:\\Users\\arthu\\OneDrive - Scai Hub\\Área de Trabalho\\projetos\\Nao-Se-Cale-Mulher\\API-SITE-Mulher\\API-SITE-Mulher.csproj": {}
   },
   "projects": {
-    "C:\\Users\\arthu\\OneDrive - Scai Hub\\Área de Trabalho\\projetos\\Não-Se-Cale-Mulher\\API-SITE-Mulher\\API-SITE-Mulher.csproj": {
+    "C:\\Users\\arthu\\OneDrive - Scai Hub\\Área de Trabalho\\projetos\\Nao-Se-Cale-Mulher\\API-SITE-Mulher\\API-SITE-Mulher.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arthu\\OneDrive - Scai Hub\\Área de Trabalho\\projetos\\Não-Se-Cale-Mulher\\API-SITE-Mulher\\API-SITE-Mulher.csproj",
+        "projectUniqueName": "C:\\Users\\arthu\\OneDrive - Scai Hub\\Área de Trabalho\\projetos\\Nao-Se-Cale-Mulher\\API-SITE-Mulher\\API-SITE-Mulher.csproj",
         "projectName": "API-SITE-Mulher",
-        "projectPath": "C:\\Users\\arthu\\OneDrive - Scai Hub\\Área de Trabalho\\projetos\\Não-Se-Cale-Mulher\\API-SITE-Mulher\\API-SITE-Mulher.csproj",
+        "projectPath": "C:\\Users\\arthu\\OneDrive - Scai Hub\\Área de Trabalho\\projetos\\Nao-Se-Cale-Mulher\\API-SITE-Mulher\\API-SITE-Mulher.csproj",
         "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arthu\\OneDrive - Scai Hub\\Área de Trabalho\\projetos\\Não-Se-Cale-Mulher\\API-SITE-Mulher\\obj\\",
+        "outputPath": "C:\\Users\\arthu\\OneDrive - Scai Hub\\Área de Trabalho\\projetos\\Nao-Se-Cale-Mulher\\API-SITE-Mulher\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -45,6 +45,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Azure.Extensions.AspNetCore.Configuration.Secrets": {
+              "target": "Package",
+              "version": "[1.2.2, )"
+            },
             "Evolve": {
               "target": "Package",
               "version": "[3.1.0, )"

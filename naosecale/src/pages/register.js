@@ -1,9 +1,39 @@
+import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
+import api from "../services/api";
 import { Box } from '../components/Box'
 import { Footer } from '../components/Footer'
 import { Topbar } from '../components/Topbar'
 
 
 export function Register(){
+    
+    const [nomeCompleto, setNomeCompleto] = useState("")
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+    const [apelido, setApelido] = useState("");
+
+    const history = useNavigate();
+
+    async function actionResgister() {
+
+        const data = {
+            nomeCompleto: "string",
+            email: "string",
+            senha: "string",
+            apelido: "string"
+        }
+    
+        try{
+            const response = await api.post('/api/Autenticacao/v1/registe', data)
+            history("/login")
+
+        }catch(error) {
+    
+        }
+    }
+
+    
     return(
         <div>
             <div className="bg-black">
@@ -44,14 +74,18 @@ export function Register(){
                                     <select>
                                         <option value="masc">Masculino</option>
                                         <option value="fem">Feminino</option>
-                                        <option value="gay">Gay</option>
                                     </select>
                                 </div>
+                            </div>
+
+                            <div onClick={actionResgister} className="mt-[15%] text-center border-solid border-2 rounded-lg p-2 bg-[#a6024f] text-white text-2xl">
+                                <span>Cadastrar</span>
                             </div>
 
                         </div>
 
                     </div>
+
 
                 </div>
 
