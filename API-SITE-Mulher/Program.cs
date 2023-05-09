@@ -111,7 +111,8 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
 builder.Services.AddCors(options => options.AddDefaultPolicy(builder =>
 {
-    builder.AllowAnyMethod()
+     builder.AllowAnyMethod()
+    .AllowAnyOrigin()
     .AllowAnyMethod()
     .AllowAnyHeader();
 }));
