@@ -5,7 +5,12 @@ import api from "../services/api";
 import { Box } from '../components/Box'
 import { Footer } from '../components/Footer'
 import { Topbar } from '../components/Topbar'
+import { useState } from 'react'
+import axios from 'axios'
 
+export function Login() {
+    const { email, setEmail } = useState()
+    const { password, setPassword } = useState()
 
 export function Login(){
 
@@ -49,11 +54,11 @@ export function Login(){
                         </div>
 
                         <div className="text-ml justify-center items-center gap-2">
-                
-                            <div className="flex flex-col lg:flex-row w-full gap-5">
-                                <input type='text' placeholder="Nome" className="lg:w-[50%] border-2 rounded-lg p-2"/> 
 
-                                <input type='text' placeholder="Sobrenome" className="lg:w-[50%] border-2 rounded-lg p-2"/> 
+                            <div className="flex flex-col lg:flex-row w-full gap-5">
+                                <input type='text' placeholder="Email" onChange={((e) => setEmail(e.target.value))} className="lg:w-[50%] border-2 rounded-lg p-2" />
+
+                                <input type='text' placeholder="Senha" onChange={((e) => setPassword(e.target.value))} className="lg:w-[50%] border-2 rounded-lg p-2" />
                             </div>
                             
                             {/* <Link to="/"> */}
