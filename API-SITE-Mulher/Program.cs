@@ -25,8 +25,8 @@ builder.Services.AddControllers();
 builder.Services.AddMvcCore();
 builder.Services.AddApiVersioning();
 
-var connectionString = "Server=127.0.0.1;DataBase=nao_se_cale_mulher_db;Uid=root;Pwd=Supersonic@123;";
-var serverVersion = new MySqlServerVersion(new Version(8, 0, 33));
+var connectionString = "Server=containers-us-west-184.railway.app;DataBase=railway;Uid=root;Pwd=Gh9iFxPucvqrVjuT3S3q;port=5512";
+var serverVersion = new MySqlServerVersion(new Version(8, 0, 31));
 
 builder.Services.AddDbContext<MySQLContext>(
     DbContextOptions => DbContextOptions

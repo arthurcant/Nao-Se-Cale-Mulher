@@ -102,7 +102,6 @@ namespace API_SITE_Mulher.Migrations
                         .HasColumnName("nome_completo");
 
                     b.Property<string>("RefreshToken")
-                        .IsRequired()
                         .HasColumnType("longtext")
                         .HasColumnName("refresh_token");
 

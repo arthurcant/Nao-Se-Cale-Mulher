@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joaum\\OneDrive\\Documentos\\Thur Thur\\Nao-Se-Cale\\API-SITE-Mulher\\API-SITE-Mulher.csproj": {}
+    "C:\\Users\\arthu\\OneDrive - Scai Hub\\Área de Trabalho\\projetos\\Não-Se-Cale-Mulher\\API-SITE-Mulher\\API-SITE-Mulher.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joaum\\OneDrive\\Documentos\\Thur Thur\\Nao-Se-Cale\\API-SITE-Mulher\\API-SITE-Mulher.csproj": {
+    "C:\\Users\\arthu\\OneDrive - Scai Hub\\Área de Trabalho\\projetos\\Não-Se-Cale-Mulher\\API-SITE-Mulher\\API-SITE-Mulher.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joaum\\OneDrive\\Documentos\\Thur Thur\\Nao-Se-Cale\\API-SITE-Mulher\\API-SITE-Mulher.csproj",
+        "projectUniqueName": "C:\\Users\\arthu\\OneDrive - Scai Hub\\Área de Trabalho\\projetos\\Não-Se-Cale-Mulher\\API-SITE-Mulher\\API-SITE-Mulher.csproj",
         "projectName": "API-SITE-Mulher",
-        "projectPath": "C:\\Users\\joaum\\OneDrive\\Documentos\\Thur Thur\\Nao-Se-Cale\\API-SITE-Mulher\\API-SITE-Mulher.csproj",
-        "packagesPath": "C:\\Users\\joaum\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joaum\\OneDrive\\Documentos\\Thur Thur\\Nao-Se-Cale\\API-SITE-Mulher\\obj\\",
+        "projectPath": "C:\\Users\\arthu\\OneDrive - Scai Hub\\Área de Trabalho\\projetos\\Não-Se-Cale-Mulher\\API-SITE-Mulher\\API-SITE-Mulher.csproj",
+        "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\arthu\\OneDrive - Scai Hub\\Área de Trabalho\\projetos\\Não-Se-Cale-Mulher\\API-SITE-Mulher\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\joaum\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -121,7 +121,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
