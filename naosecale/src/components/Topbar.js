@@ -12,6 +12,7 @@ import { Typography } from "@mui/material";
 
 
 export function Topbar() {
+
     return (
         <div className="flex flex-row w-full  items-center justify-between shadow-xl text-white bg-[#6b0023] px-10 py-7 lg:py-0">
             <div className="italic font-extrabold items-center text-xl lg:text-2xl">
@@ -51,7 +52,7 @@ export function Topbar() {
                 </Link>
 
                 <Link to="/">
-                    <div className="underline flex flex-row items-center gap-1">
+                    <div className="underline flex flex-row items-center gap-1" value="180">
                         <FaExclamationTriangle className="text-lg" />
                         <span>Ligue 180</span>
                     </div>

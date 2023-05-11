@@ -12,8 +12,10 @@ export function Categories(){
                 <Topbar/>
                 <div className="flex flex-col w-full h-screen lg:flex-row items-center justify-center shadow-xl bg-[#FFDEF6]">
         
-                        <div className="flex items-start justify-center h-[85%] lg:w-[50%] shadow-xl bg-white rounded-lg">
-                            <div className="flex flex-col w-full items-center justify-center py-10">
+                        <div className="flex items-start justify-center h-[85%] lg:w-[50%] 
+                        w-[90%] shadow-xl bg-white rounded-lg">
+                            
+                            <div className="flex flex-col w-full items-center justify-center py-10 ">
                                 <div className="lg:my-6 justify-center text-center text-4xl mt-[-5%]">
                                     <span className="font-semibold">Categorias</span>
                                 </div>
