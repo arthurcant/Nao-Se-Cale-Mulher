@@ -27,6 +27,7 @@ export function Categories(){
                                     <BoxCategory />
                                     <BoxCategory />
                                     <BoxCategory />
+                                    
 
                                     <div className="lg:mt-[2.5%]"><Pagination/></div>
                                 </div>
