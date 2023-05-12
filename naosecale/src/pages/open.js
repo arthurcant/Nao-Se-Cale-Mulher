@@ -11,17 +11,16 @@ import React, { useState } from "react";
 export function Open() {
 
     return(
-
-        <div className='w-full'>
+        <div>
             <Topbar/>
 
-            <div className="flex flex-row lg:flex-row items-center justify-center shadow-xl bg-[#FFDEF6]">
+            <div className="flex flex-col h-screen items-center justify-center shadow-xl bg-[#FFDEF6]">
     
-                <div className="lex flex-col justify-center items-center bg-white rounded-lg lg:h-[65%] lg:w-[50%] w-full">
+                <div className="flex flex-col justify-center items-center bg-white rounded-lg lg:h-[95%] lg:w-[48%] h-[85%] w-[85%]">
                         <div className="text-3xl text-center mt-[7.5%]"><span>Titulo Do Poster</span></div>
                         <Posts/>
                     
-                        <div className="ml-[40%] mb-[5%]"><Pagination/></div>
+                        <div className=""><Pagination/></div>
                 </div>
             </div>
             <Footer/>
