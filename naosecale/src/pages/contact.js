@@ -18,7 +18,7 @@ export function Contact() {
                             <input type="text" className="hidden lg:grid lg:flex-row shadow-lg border-2 hover:border-pink-500 ml-20 rounded-full text-black transition-colors margin lg:ml-20 lg:w-60 lg:ml-10 lg:text-2xl"/>
                         </div>
             
-                        <div className="lg:w-[80%] flex lg:flex-col lg:m-20 lg:mt-[0%] 
+                        <div className="lg:w-[80%] flex lg:flex-col lg:m-20 lg:mt-[0%]
                         flex-col text-center justify-center ">
                             <a href="/contacts">Lorem Ipsum Av.Lorem Ipsum........................(99)99999-9999</a>
                             <a href="/contacts">Lorem Ipsum Av.Lorem Ipsum........................(99)99999-9999</a>
@@ -39,7 +39,7 @@ export function Contact() {
                             <a href="/contacts">Lorem Ipsum Av.Lorem Ipsum........................(99)99999-9999</a>
                             <a href="/contacts">Lorem Ipsum Av.Lorem Ipsum........................(99)99999-9999</a>
 
-                            <div className="lg:mt-[5%]"><Pagination/></div>
+                            <div className="mt-[5%] ml-[35%] "><Pagination/></div>
                         </div>
 
                     </div>
