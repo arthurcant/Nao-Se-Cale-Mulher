@@ -123,3 +123,6 @@ C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\bin\Debug\net6.0\Azure.Security.KeyVault.Secrets.dll
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\bin\Debug\net6.0\System.Memory.Data.dll
+C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\bin\Debug\net6.0\Collections\Categorias.postman_collection.json
+C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\bin\Debug\net6.0\Collections\Login.postman_collection.json
+C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\bin\Debug\net6.0\Collections\Posteres.postman_collection.json

@@ -1,7 +1,6 @@
 ﻿using API_SITE_Mulher.Business;
 using API_SITE_Mulher.Data.VO;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API_SITE_Mulher.Controllers

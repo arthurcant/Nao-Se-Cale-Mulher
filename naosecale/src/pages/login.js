@@ -5,12 +5,7 @@ import api from "../services/api";
 import { Box } from '../components/Box'
 import { Footer } from '../components/Footer'
 import { Topbar } from '../components/Topbar'
-import { useState } from 'react'
-import axios from 'axios'
 
-export function Login() {
-    const { email, setEmail } = useState()
-    const { password, setPassword } = useState()
 
 export function Login(){
 

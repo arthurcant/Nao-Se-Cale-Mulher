@@ -38,7 +38,6 @@ export function Register(){
     return(
         <div>
             <div className="bg-black">
-                <button onClick={register}>Teste</button>
 
                 <div className="flex flex-row h-screen lg:flex-row items-center justify-center shadow-xl bg-[#FFDEF6]">
                     <div className="flex flex-col justify-center items-center bg-white rounded-lg lg:h-[75%] lg:w-[50%] w-full">
