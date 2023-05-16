@@ -42,6 +42,7 @@ namespace API_SITE_Mulher.Controllers
 
             if (usuarioRegistrado == null) return BadRequest("The user was't registered with sucess.");
 
+            //TODO: MUDAR RESPOSTA PARA CREATED 201
             return Ok(usuarioRegistrado);
         }
 

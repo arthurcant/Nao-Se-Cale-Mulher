@@ -32,9 +32,21 @@ export function Login(){
             history("/")
 
         }catch(error){
-            alert("Erro login invalid!")
-        }
+            if (error.response.status === 401) {
 
+                alert("Acesso não autorizado.");
+            } else if (error.request) {
+                
+                console.log(error.request); 
+                console.log("Error do servidor");
+            } else {
+
+                console.log('Error', error.message);
+            }
+
+            alert("Erro login invalid!")
+            console.log(error.config);
+        }
     }
 
     return(

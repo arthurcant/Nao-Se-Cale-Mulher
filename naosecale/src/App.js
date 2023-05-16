@@ -26,16 +26,6 @@ export default function App() {
     fetchData()
   }, [])
 
-  /*
-  return (
-    <div className='App'>
-      {itens.map(itens => {
-        return <div><span>item.id</span><span>item.title</span>item.completed<span></span></div>
-      })}
-    </div>
-    );
-  */
-
   return (
     <ChakraProvider>
       <Routes>
