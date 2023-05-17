@@ -3,13 +3,14 @@ import { Footer } from '../components/Footer'
 import { Topbar } from '../components/Topbar'
 import { Pagination } from '../components/Pagination'
 import { Posts } from '../components/Posts'
+import FirstLogin  from '../services/api'
 
 import { FaHome, FaPhoneAlt, FaFlag, FaInfoCircle, FaExclamationTriangle, FaSearch, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 
 import React, { useState } from "react";
 
 export function Index() {
-
+    
     return(
         <div className='w-full'>
             <Topbar/>

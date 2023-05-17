@@ -13,19 +13,6 @@ import { ChakraProvider } from '@chakra-ui/react'
 
 export default function App() {
 
-  const [itens, setItens] = useState([])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await fetch('https://jsonplaceholder.typicode.com/todos')
-        .then(response => response.json())
-        .then(data => data)
-
-      setItens(result)
-    }
-    fetchData()
-  }, [])
-
   return (
     <ChakraProvider>
       <Routes>
