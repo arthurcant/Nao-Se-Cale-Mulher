@@ -57,14 +57,14 @@ export function Hamburguer(){
                             </div>
                         </MenuItem>
                     </Link>
-                    <Link to="/" className='flex items-center w-full'>
+                    <div className='flex items-center w-full'>
                         <MenuItem>
                             <div className='flex flex-row items-center w-full gap-2'>
                                 <FaExclamationTriangle className="text-lg" />
                                 Ligue 180
                             </div>
                         </MenuItem>
-                    </Link>
+                    </div>
                 </div>
             </MenuList>
         </Menu>
