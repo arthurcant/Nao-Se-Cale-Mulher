@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 
 export function Posts() {
+    
     return(
         <div>
             <div className="border-solid border-2 p-40 lg:m-5 shadow-xl">
@@ -9,8 +10,8 @@ export function Posts() {
             </div>
 
             <div className="mt-0 ml-5  font-weight: 900">
-                <span>Autor: 19 DE FEVEREIRO DE 2023</span>
                 <div className="font-weight:900 mt-0"><span>Título</span></div>
+                <span>Autor: 19 DE FEVEREIRO DE 2023</span>
             </div>
 
             <div className="m-5">

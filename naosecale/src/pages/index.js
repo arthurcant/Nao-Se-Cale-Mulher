@@ -3,14 +3,37 @@ import { Footer } from '../components/Footer'
 import { Topbar } from '../components/Topbar'
 import { Pagination } from '../components/Pagination'
 import { Posts } from '../components/Posts'
-import FirstLogin  from '../services/api'
+import { Tags } from '../components/Tags'
+import api  from '../services/api'
 
 import { FaHome, FaPhoneAlt, FaFlag, FaInfoCircle, FaExclamationTriangle, FaSearch, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 
-import React, { useState } from "react";
+import React, { useState, useEffect} from 'react'
 
 export function Index() {
-    
+
+    const [posters, setPosters] = useState([]);
+    const [page, setPage] = useState(1);
+
+    const email = localStorage.getItem('email')
+    const accessToken = localStorage.getItem('accessToken')
+
+    const authorization = {
+        headers: {
+            Authorization: `Bearer ${accessToken}`
+        }
+    }
+
+    useEffect(() => {
+        fetchMorePosters()
+    }, [accessToken])
+
+    async function fetchMorePosters() {
+        const response = await api.get(`/api/posteres/v1/asc/4/${page}`, authorization)
+        console.log(response)
+        setPosters([...posters, ...response.data.list])
+    }
+
     return(
         <div className='w-full'>
             <Topbar/>
@@ -19,8 +42,9 @@ export function Index() {
     
                 <div className="flex flex-col lg:flex-row items-start justify-between shadow-xl bg-[#FFDEF6]">
                     <div className="ml-7 border-solid border-2 rounded-lg shadow-xl lg:p-20 p-10 pt-10 lg:mt-16 bg-white">
-
-                        <Posts/>
+                  {posters.map(row => (
+                      <Posts row={row} />
+                  ))} 
                         <Posts/>
                         <Posts/>
                         <Posts/>

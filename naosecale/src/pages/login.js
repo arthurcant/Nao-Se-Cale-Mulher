@@ -21,32 +21,20 @@ export function Login(){
             email: "arthurbig12@gmail.com",
             password: "admin213!"
         }
-
+        
         try {
-
+            
             const response = await api.post('/api/Autenticacao/v1/signin', data);
-
+            console.log(response);
             localStorage.setItem('email', data.email);
             localStorage.setItem('accessToken', response.data.accessToken);
             localStorage.setItem('refreshToken', response.data.refreshToken);
             history("/")
-
+            
         }catch(error){
-            if (error.response.status === 401) {
-
-                alert("Acesso não autorizado.");
-            } else if (error.request) {
-                
-                console.log(error.request); 
-                console.log("Error do servidor");
-            } else {
-
-                console.log('Error', error.message);
-            }
-
-            alert("Erro login invalid!")
-            console.log(error.config);
+            
         }
+        console.log("Chamando função login");
     }
 
     return(
@@ -74,11 +62,11 @@ export function Login(){
                                 </div>
                             {/* </Link> */}
 
-                            <Link to="https://www.youtube.com/watch?v=SKg-WkkBCfM">
+                            {/* <Link to="">
                                 <div className="text-md text-black lg:my-[5%] text-center">
                                     <button>Esqueceu a Conta ?</button>
                                 </div>
-                            </Link>
+                            </Link> */}
 
                             <Link to="/register">
                                 <div className="text-center border-solid border-2 rounded-lg p-2 bg-[#a6024f] text-white text-2xl">

@@ -26,7 +26,7 @@ export function Register() {
         }
 
         try {
-            await axios.post('https://localhost:7126/swagger/v1/api/Autenticacao/v1/registe', data)
+            await axios.post('/api/posteres/v1/registe', data)
             history("/login")
 
         } catch (error) {

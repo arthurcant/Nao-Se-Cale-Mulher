@@ -6,12 +6,15 @@ import { Login } from './pages/login'
 import { Register } from './pages/register'
 import { Write } from './pages/write'
 import { Open } from './pages/open'
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react'
+import api  from './services/api'
 import { ChakraProvider } from '@chakra-ui/react'
 
 
 export default function App() {
+
+
 
   return (
     <ChakraProvider>

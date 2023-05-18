@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
@@ -30,17 +31,21 @@ var serverVersion = new MySqlServerVersion(new Version(8, 0, 31));
 
 builder.Services.AddDbContext<MySQLContext>(
     DbContextOptions => DbContextOptions
-    .UseMySql(connectionString, serverVersion)
     .LogTo(Console.WriteLine)
     .EnableSensitiveDataLogging()
     .EnableDetailedErrors()
-);
+    .UseMySql(connectionString, serverVersion, options => options.EnableRetryOnFailure(
+                    maxRetryCount: 5,
+                    maxRetryDelay: System.TimeSpan.FromSeconds(30),
+                    errorNumbersToAdd: null)
+     ));
+
 
 TokenConfiguration tokenConfigurations = new TokenConfiguration();
 
 tokenConfigurations.Audience = "ExempleAudience";
 tokenConfigurations.Issuer = "ExempleIssuer";
-tokenConfigurations.Minutes = 60;
+tokenConfigurations.Minutes = 5;
 tokenConfigurations.Secret = "MY_SUPER_SECRET_KEY";
 tokenConfigurations.DaysToExpiry = 7;
 
