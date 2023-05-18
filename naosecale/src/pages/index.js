@@ -29,7 +29,7 @@ export function Index() {
     }, [accessToken])
 
     async function fetchMorePosters() {
-        const response = await api.get(`/api/posteres/v1/asc/4/${page}`, authorization)
+        const response = await api.get(`/api/posteres/v1/asc/4/2`, authorization)
         console.log(response)
         setPosters([...response.data.list])
         setPage(page + 1);
@@ -43,25 +43,13 @@ export function Index() {
     
                 <div className="flex flex-col lg:flex-row items-start justify-between shadow-xl bg-[#FFDEF6]">
                     <div className="ml-7 border-solid border-2 rounded-lg shadow-xl lg:p-20 p-10 pt-10 lg:mt-16 bg-white">
-                  {posters.map(poster => (
-                    <div key={poster.id}>
-                        <div className="border-solid border-2 p-40 lg:m-5 shadow-xl">
-                            <img className="object-cover"/>
-                        </div>
-            
-                        <div className="mt-0 ml-5  font-weight: 900">
-                            <div className="font-weight:900 mt-0"><span>{poster.titulo}</span></div>
-                            <span>{Intl.DateTimeFormat('pt-BR').format(new Date(poster.dataDaPublicacao))}</span>
-                        </div>
-            
-                        <div className="m-5">
-                            <a>{poster.descricao}</a>
-                        </div>
-                   </div>
-                  ))} 
-                    <Posts/>
-                    <Posts/>
-                    <Posts/>
+                  {posters.map((poster, index) => (
+                    <Posts 
+                    id={poster.id} 
+                    titulo={poster.titulo} 
+                    dataDaPublicacao={Intl.DateTimeFormat('pt-BR').format(new Date(poster.dataDaPublicacao))} 
+                    descricao={poster.descricao}/>
+                  ))}  
                     <div className="ml-[40%]"><Pagination/></div>
 
                     </div>
