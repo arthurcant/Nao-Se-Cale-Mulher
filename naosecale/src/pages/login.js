@@ -72,14 +72,11 @@ export function Login(){
                                 <div onClick={login} className="mt-[15%] text-center border-solid border-2 rounded-lg p-2 bg-[#a6024f] text-white text-2xl">
                                     <span>Entrar</span>
                                 </div>
-                            {/* </Link> */}
-
-                            <Link to="https://www.youtube.com/watch?v=SKg-WkkBCfM">
+                            
                                 <div className="text-md text-black lg:my-[5%] text-center">
                                     <button>Esqueceu a Conta ?</button>
                                 </div>
-                            </Link>
-
+                            
                             <Link to="/register">
                                 <div className="text-center border-solid border-2 rounded-lg p-2 bg-[#a6024f] text-white text-2xl">
                                     <span>Criar uma Conta</span>
