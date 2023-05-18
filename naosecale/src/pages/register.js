@@ -19,10 +19,10 @@ export function Register() {
     async function actionResgister() {
 
         const data = {
-            nomeCompleto: "teste",
-            email: "test@gmail.com",
-            senha: "Teste123@#$",
-            apelido: "teste"
+            nomeCompleto: nomeCompleto,
+            email: email,
+            senha: senha,
+            apelido: apelido
         }
 
         try {

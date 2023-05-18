@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "bd0916da-b614-492f-bc69-30d052d83a8e",
+		"name": "Posteres",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17967844",
+		"_collection_link": "https://dark-station-531392.postman.co/workspace/API_Site_Mulher~01a8a2e4-682c-497e-9d40-001139218bb5/collection/17967844-bd0916da-b614-492f-bc69-30d052d83a8e?action=share&creator=17967844&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "RegisterPoster",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Titulo\":\"Teste014\",\r\n    \"Descricao\":\"Com 1 tags na criação\",\r\n    \"Conteudo\":\"<h1>Lorem ipsum dolor sit amet consectetur</h1><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et distinctio ad veritatis consequuntur quidem! Blanditiis iure in aliquam. Ex eos doloribus beatae fugiat ducimus provident, earum in vel omnis tempora!</p><p>    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quis veniam architecto facere, dicta nostrum magnam unde quisquam, eius qui veritatis eum soluta saepe eveniet culpa earum rem officiis? Officiis.</p><p>    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, a rem velit consequatur in tenetur blanditiis, nemo eveniet soluta nam hic facilis iusto, provident doloremque nobis cumque voluptatum voluptas! A.</p><p>    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam vero laudantium architecto officiis corporis! Quod ipsum consequatur quaerat assumenda iure, id corporis repudiandae eaque hic repellat rerum laboriosam, quisquam eveniet.</p>\",\r\n    \"tags\": [\r\n        1,8\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/posteres/v1/registerpost",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"posteres",
+						"v1",
+						"registerpost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPosteres",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/posteres/v1/asc/10/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"posteres",
+						"v1",
+						"asc",
+						"10",
+						"1"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "teste",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePosteres",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/posteres/v1/5",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"posteres",
+						"v1",
+						"5"
+					],
+					"query": [
+						{
+							"key": "Title",
+							"value": "klsjdalfjk",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdatePoster",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 5,\r\n  \"titulo\": \"string\",\r\n  \"descricao\": \"string\",\r\n  \"conteudo\": \"string\",\r\n  \"tags\": [\r\n    {\r\n        \"id\": 1,\r\n        \"nomeCategoria\": \"Direitos Contra  Violência Institucional\",\r\n        \"nomeTag\": \"#DireitosContraViolenciaInstitucional\"\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"nomeCategoria\": \"Direitos Contra Violência Doméstica\",\r\n        \"nomeTag\": \"#DireitosContraViolenciaDomentica\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/posteres/v1/updateposter",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"posteres",
+						"v1",
+						"updateposter"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

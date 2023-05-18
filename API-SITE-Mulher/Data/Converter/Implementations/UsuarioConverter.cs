@@ -20,6 +20,7 @@ namespace API_SITE_Mulher.Data.Converter.Implementations
                 Id = origin.Id,
                 NomeCompleto = origin.NomeCompleto,
                 Email = origin.Email,
+                Apelido = origin.Apelido,
                 Senha = origin.Senha,
                 Role = (Roles)origin.Role,
                 RefreshToken = origin.RefreshToken,

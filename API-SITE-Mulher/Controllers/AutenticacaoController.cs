@@ -1,7 +1,6 @@
 ﻿using API_SITE_Mulher.Business;
 using API_SITE_Mulher.Data.VO;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API_SITE_Mulher.Controllers
@@ -43,6 +42,7 @@ namespace API_SITE_Mulher.Controllers
 
             if (usuarioRegistrado == null) return BadRequest("The user was't registered with sucess.");
 
+            //TODO: MUDAR RESPOSTA PARA CREATED 201
             return Ok(usuarioRegistrado);
         }
 
