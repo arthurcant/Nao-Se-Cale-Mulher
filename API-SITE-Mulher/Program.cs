@@ -45,7 +45,7 @@ TokenConfiguration tokenConfigurations = new TokenConfiguration();
 
 tokenConfigurations.Audience = "ExempleAudience";
 tokenConfigurations.Issuer = "ExempleIssuer";
-tokenConfigurations.Minutes = 5;
+tokenConfigurations.Minutes = 60;
 tokenConfigurations.Secret = "MY_SUPER_SECRET_KEY";
 tokenConfigurations.DaysToExpiry = 7;
 
