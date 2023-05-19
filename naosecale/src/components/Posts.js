@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Tags } from "./Tags";
 
 export function Posts(props) {
     
@@ -17,6 +17,7 @@ export function Posts(props) {
             <div className="m-5">
                 <a>{props.descricao}</a>
             </div>
+            <Tags categorias={props.categorias} />
         </div>
     )
 }

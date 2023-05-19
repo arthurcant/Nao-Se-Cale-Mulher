@@ -12,9 +12,13 @@ import React, { useState, useEffect} from 'react'
 
 export function Index() {
 
-    const [posters, setPosters] = useState([]);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [amountPages, setAmountPages] = useState(0);
+    const [listPosters, setListPosters] = useState([]);
+    const [listNum, setListNum] = useState([]);
     const [page, setPage] = useState(1);
-
+    const [pageSize, setPageSize] = useState(4);
+    const [totalResults, setTotalResults] = useState(0);
     const email = localStorage.getItem('email')
     const accessToken = localStorage.getItem('accessToken')
 
@@ -27,12 +31,33 @@ export function Index() {
     useEffect(() => {
         fetchMorePosters()
     }, [accessToken])
+    
+    useEffect(() => {
+        calculateNumberPages()
+    }, [])
 
     async function fetchMorePosters() {
-        const response = await api.get(`/api/posteres/v1/asc/4/2`, authorization)
+        const response = await api.get(`/api/posteres/v1/asc/${pageSize}/${page}`, authorization)
         console.log(response)
-        setPosters([...response.data.list])
-        setPage(page + 1);
+
+        setPageSize(response.data.pageSize)
+        setTotalResults(response.data.totalResults)
+        setCurrentPage(response.data.currentPage)
+        setListPosters([...response.data.list])
+        setAmountPages((totalResults % 2 == 0 ? totalResults / pageSize : (totalResults / pageSize) + 1 ))
+    }
+
+    function setValuePage(num) {
+        setPage(num)
+        fetchMorePosters()
+    }
+
+    function calculateNumberPages() {
+        let listJsx = []
+        for(let i = 1; i <= amountPages; i++ ) {
+            listJsx.push(<button key={i} onClick={setValuePage(i)}>{i}</button>)
+        }
+        setListNum([...listNum, ...listJsx])
     }
 
     return(
@@ -43,14 +68,24 @@ export function Index() {
     
                 <div className="flex flex-col lg:flex-row items-start justify-between shadow-xl bg-[#FFDEF6]">
                     <div className="ml-7 border-solid border-2 rounded-lg shadow-xl lg:p-20 p-10 pt-10 lg:mt-16 bg-white">
-                  {posters.map((poster, index) => (
+                  {listPosters.map((poster) => (
                     <Posts 
                     id={poster.id} 
                     titulo={poster.titulo} 
                     dataDaPublicacao={Intl.DateTimeFormat('pt-BR').format(new Date(poster.dataDaPublicacao))} 
-                    descricao={poster.descricao}/>
+                    descricao={poster.descricao}
+                    categorias={poster.tags}
+                    />
                   ))}  
-                    <div className="ml-[40%]"><Pagination/></div>
+                    <div className="ml-[40%]">
+                    <div className="text-center items-center gap-3 flex flex-row">
+                        {
+                            listNum.map(element => (
+                                {element}
+                            ))
+                        }
+                    </div>
+                    </div>
 
                     </div>
 

@@ -30,7 +30,7 @@ export function Pagination(){
             <button onClick={Back}><FaArrowLeft className="text-lg"/></button>
                 {
                     pages.map((pg, i) => (
-                    <button key={i}>{pg.page}</button>
+                    <button key={i} >{pg.page}</button>
                     ))
                 }
             <button onClick={Next}><FaArrowRight className="text-lg"/></button>
