@@ -32,32 +32,24 @@ export function Index() {
         fetchMorePosters()
     }, [accessToken])
     
-    useEffect(() => {
-        calculateNumberPages()
-    }, [])
+    async function fetchMorePosters(numPage = 1) {
+        const response = await api.get(`/api/posteres/v1/asc/${pageSize}/${numPage}`, authorization)
 
-    async function fetchMorePosters() {
-        const response = await api.get(`/api/posteres/v1/asc/${pageSize}/${page}`, authorization)
         console.log(response)
 
-        setPageSize(response.data.pageSize)
-        setTotalResults(response.data.totalResults)
-        setCurrentPage(response.data.currentPage)
+        // setPageSize(response.data.pageSize)
+        // setTotalResults(response.data.totalResults)
+        // setCurrentPage(response.data.currentPage)
         setListPosters([...response.data.list])
-        setAmountPages((totalResults % 2 == 0 ? totalResults / pageSize : (totalResults / pageSize) + 1 ))
+        setAmountPages((response.data.totalResults % 2 == 0 ? response.data.totalResults / response.data.pageSize : (response.data.totalResults / response.data.pageSize) + 1 ))
     }
 
-    function setValuePage(num) {
-        setPage(num)
-        fetchMorePosters()
-    }
-
-    function calculateNumberPages() {
-        let listJsx = []
-        for(let i = 1; i <= amountPages; i++ ) {
-            listJsx.push(<button key={i} onClick={setValuePage(i)}>{i}</button>)
+    const calcNumPage = () => {
+        var td = [];
+        for (let index = 1; index <= amountPages; index++) {
+            td.push(index)
         }
-        setListNum([...listNum, ...listJsx])
+        return td;
     }
 
     return(
@@ -77,14 +69,13 @@ export function Index() {
                     categorias={poster.tags}
                     />
                   ))}  
-                    <div className="ml-[40%]">
-                    <div className="text-center items-center gap-3 flex flex-row">
-                        {
-                            listNum.map(element => (
-                                {element}
-                            ))
-                        }
-                    </div>
+
+                    <div className="ml-[40%] flex ">
+                        <div >
+                            {[1,2,3].map((element, index) => (
+                                    <button key={index} onClick={() => fetchMorePosters(element)} value={element} />
+                            ))}
+                        </div>
                     </div>
 
                     </div>

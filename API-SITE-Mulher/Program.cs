@@ -35,7 +35,7 @@ builder.Services.AddDbContext<MySQLContext>(
     .EnableSensitiveDataLogging()
     .EnableDetailedErrors()
     .UseMySql(connectionString, serverVersion, options => options.EnableRetryOnFailure(
-                    maxRetryCount: 5,
+                    maxRetryCount: 15,
                     maxRetryDelay: System.TimeSpan.FromSeconds(30),
                     errorNumbersToAdd: null)
      ));
