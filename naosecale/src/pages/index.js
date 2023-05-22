@@ -70,13 +70,15 @@ export function Index() {
                     />
                   ))}  
 
-                <div className=''>
+                <div className='text-black' >
                     {/* Tentativa inicial de paginação */}
-                    {calcNumPage().map((element, index) => (
-                        <div key={index}>
-                            <button onClick={() => fetchMorePosters(element)} value={element} />
-                        </div>
-                    ))}
+                    {[1,2,3].map((element, index) => {
+                        return(
+                            <div className='text-black' key={index}>
+                                <button className='text-black' onClick={() => fetchMorePosters(element)} value={element} />
+                            </div>
+                        )
+                    })}
                 </div>
 
                     </div>
