@@ -70,13 +70,13 @@ export function Index() {
                     />
                   ))}  
 
-                    <div className="ml-[40%] flex ">
-                        <div >
-                            {[1,2,3].map((element, index) => (
-                                    <button key={index} onClick={() => fetchMorePosters(element)} value={element} />
-                            ))}
-                        </div>
+                <div className="ml-[40%] flex ">
+                    <div >
+                        {[1,2,3].map((element, index) => (
+                                <button key={index} onClick={() => fetchMorePosters(element)} value={element} />
+                        ))}
                     </div>
+                </div>
 
                     </div>
 

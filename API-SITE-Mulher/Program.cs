@@ -26,7 +26,7 @@ builder.Services.AddControllers();
 builder.Services.AddMvcCore();
 builder.Services.AddApiVersioning();
 
-var connectionString = "Server=containers-us-west-184.railway.app;DataBase=railway;Uid=root;Pwd=Gh9iFxPucvqrVjuT3S3q;port=5512";
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnectionString");
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 31));
 
 builder.Services.AddDbContext<MySQLContext>(
@@ -43,11 +43,8 @@ builder.Services.AddDbContext<MySQLContext>(
 
 TokenConfiguration tokenConfigurations = new TokenConfiguration();
 
-tokenConfigurations.Audience = "ExempleAudience";
-tokenConfigurations.Issuer = "ExempleIssuer";
-tokenConfigurations.Minutes = 60;
-tokenConfigurations.Secret = "MY_SUPER_SECRET_KEY";
-tokenConfigurations.DaysToExpiry = 7;
+new ConfigureFromConfigurationOptions<TokenConfiguration>(
+   builder.Configuration.GetSection("TokenCofigurations")).Configure(tokenConfigurations);
 
 builder.Services.AddSingleton(tokenConfigurations);
 
