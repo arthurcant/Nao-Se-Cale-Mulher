@@ -47,6 +47,7 @@ DROP TABLE IF EXISTS `tb_poster`;
 CREATE TABLE `tb_poster` (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_usuario` int DEFAULT NULL,
+  `url_image_poster` varchar(300) default null,
   `data_de_publicacao` datetime(6) NOT NULL,
   `titulo` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `descricao` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
@@ -54,7 +55,7 @@ CREATE TABLE `tb_poster` (
   `tbUsuariosId` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IX_tb_poster_tbUsuariosId` (`tbUsuariosId`),
-  CONSTRAINT `FK_tb_poster_tb_usuario_tbUsuariosId` FOREIGN KEY (`tbUsuariosId`) REFERENCES `tb_usuario` (`id`)
+  CONSTRAINT `FK_tb_poster_tb_usuario_tbUsuariosId` FOREIGN KEY (`tbUsuariosId`) REFERENCES `tb_usuario` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 LOCK TABLES `tb_poster` WRITE;

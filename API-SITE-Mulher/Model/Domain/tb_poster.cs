@@ -15,6 +15,9 @@ namespace API_SITE_Mulher.Model.Domain
         [Column("id_usuario")]
         public int? id_usuario { get; set; }
 
+        [Column("url_image_poster")]
+        public string? UrlImagePoster { get; set; }
+
         [Column("data_de_publicacao")]
         public DateTime DataDaPublicacao { get; set; }
 

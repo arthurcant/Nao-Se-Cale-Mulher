@@ -41,6 +41,7 @@ namespace API_SITE_Mulher.Business.Implementations
         public tb_poster Create(PosterVO posterRegisterVO, string email)
         {
             tb_poster tbPoster = new tb_poster();
+            tbPoster.UrlImagePoster = posterRegisterVO.UrlImagePoster;
             tbPoster.Titulo = posterRegisterVO.Titulo;
             tbPoster.Descricao = posterRegisterVO.Descricao;
             tbPoster.Conteudo = posterRegisterVO.Conteudo;

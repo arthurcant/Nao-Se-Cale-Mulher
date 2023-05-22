@@ -32,6 +32,7 @@ namespace API_SITE_Mulher.Data.Converter.Implementations
             tb_poster tbPoster = new tb_poster();
             tbPoster.Id = origin.Id;
             tbPoster.Titulo = origin.Titulo;
+            tbPoster.UrlImagePoster = origin.UrlImagePoster;
             tbPoster.Descricao = origin.Descricao;
             tbPoster.Conteudo = origin.Conteudo;
             tbPoster.DataDaPublicacao = DateTime.Now;
@@ -60,6 +61,7 @@ namespace API_SITE_Mulher.Data.Converter.Implementations
             Poster poster = new Poster();
             poster.Id = origin.Id;
             poster.Titulo = origin.Titulo;
+            poster.UrlImagePoster = origin.UrlImagePoster;
             poster.Descricao = origin.Descricao;
             poster.Conteudo = origin.Conteudo;
             poster.DataDaPublicacao = DateTime.Now;

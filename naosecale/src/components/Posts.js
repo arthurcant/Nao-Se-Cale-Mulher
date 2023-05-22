@@ -6,7 +6,7 @@ export function Posts(props) {
     return(
         <div key={props.id}>
             <div className="border-solid border-2 p-40 lg:m-5 shadow-xl">
-                <img className="object-cover"/>
+                <img className="object-cover" src="../src/img/Mulher.png"/>
             </div>
 
             <div className="mt-0 ml-5  font-weight: 900">

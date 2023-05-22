@@ -14,11 +14,11 @@ export function Index() {
 
     const [currentPage, setCurrentPage] = useState(0);
     const [amountPages, setAmountPages] = useState(0);
+    const [totalResults, setTotalResults] = useState(0);
+    const [pageSize, setPageSize] = useState(4);
     const [listPosters, setListPosters] = useState([]);
     const [listNum, setListNum] = useState([]);
     const [page, setPage] = useState(1);
-    const [pageSize, setPageSize] = useState(4);
-    const [totalResults, setTotalResults] = useState(0);
     const email = localStorage.getItem('email')
     const accessToken = localStorage.getItem('accessToken')
 
@@ -37,16 +37,16 @@ export function Index() {
 
         console.log(response)
 
-        // setPageSize(response.data.pageSize)
-        // setTotalResults(response.data.totalResults)
-        // setCurrentPage(response.data.currentPage)
+        setPageSize(response.data.pageSize)
+        setTotalResults(response.data.totalResults)
+        setCurrentPage(response.data.currentPage)
         setListPosters([...response.data.list])
-        setAmountPages((response.data.totalResults % 2 == 0 ? response.data.totalResults / response.data.pageSize : (response.data.totalResults / response.data.pageSize) + 1 ))
+        setAmountPages((totalResults % 2 == 0 ? totalResults / pageSize : (totalResults / pageSize) + 1 ))
     }
-
-    const calcNumPage = () => {
+    
+    function calcNumPage() {
         var td = [];
-        for (let index = 1; index <= amountPages; index++) {
+        for (let index = 1; index <= amountPages; ++index) {
             td.push(index)
         }
         return td;
@@ -70,12 +70,13 @@ export function Index() {
                     />
                   ))}  
 
-                <div className="ml-[40%] flex ">
-                    <div >
-                        {[1,2,3].map((element, index) => (
-                                <button key={index} onClick={() => fetchMorePosters(element)} value={element} />
-                        ))}
-                    </div>
+                <div className=''>
+                    {/* Tentativa inicial de paginação */}
+                    {calcNumPage().map((element, index) => (
+                        <div key={index}>
+                            <button onClick={() => fetchMorePosters(element)} value={element} />
+                        </div>
+                    ))}
                 </div>
 
                     </div>
