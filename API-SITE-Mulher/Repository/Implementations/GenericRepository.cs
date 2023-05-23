@@ -47,6 +47,16 @@ namespace API_SITE_Mulher.Repository.Implementations
             }
         }
 
+        public T FindById(int id)
+        {
+            var result = dataset.FirstOrDefault((t) => t.Id == id);
+
+            if (result == null) return null;
+
+            return result;
+
+        }
+
         public List<T> FindWithPagedSearch(string query)
         {
             return dataset.FromSqlRaw(query).ToList();

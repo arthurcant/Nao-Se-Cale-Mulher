@@ -9,6 +9,7 @@ namespace API_SITE_Mulher.Business
         tb_poster Create(PosterVO poster, string email);
         PagedSearchVO<Poster> FindWithPagedSearch(string sortDirection, int pageSize, int page, tb_usuario tbUsuario, string title);
         Poster Update(Poster poster, tb_usuario tbUsuario);
+        bool UpdateImageUrlPoster(int id, ImageUrlVO imageUrl);
         void DeleteById(int id);
     }
 }

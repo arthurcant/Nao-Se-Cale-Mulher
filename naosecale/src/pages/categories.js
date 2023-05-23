@@ -10,12 +10,10 @@ import React, { useState, useEffect} from 'react'
 export function Categories(){
     
     const [currentPage, setCurrentPage] = useState(0);
-    const [amountPages, setAmountPages] = useState(0);
     const [totalResults, setTotalResults] = useState(0);
     const [pageSize, setPageSize] = useState(4);
     const [listCategorias, setListPosters] = useState([]);
-    const [listNum, setListNum] = useState([]);
-    const [page, setPage] = useState(1);
+
     const email = localStorage.getItem('email')
     const accessToken = localStorage.getItem('accessToken')
 
@@ -38,7 +36,6 @@ export function Categories(){
         setTotalResults(response.data.totalResults)
         setCurrentPage(response.data.currentPage)
         setListPosters([...response.data.list])
-        setAmountPages((totalResults % 2 == 0 ? totalResults / pageSize : (totalResults / pageSize) + 1 ))
     }
     
     function calcNumPage() {
@@ -48,7 +45,6 @@ export function Categories(){
         }
         return td;
     }
-
 
     return(
             <div>
@@ -68,19 +64,18 @@ export function Categories(){
                                 <div className="flex flex-col w-[80%] justify-center items-center gap-3 lg:mt-[2.5%] mt-[5%]">
                                 {listCategorias.map((categoria) => (
                                     <BoxCategory 
-                                    id={categoria.id} 
-                                    nomeCategoria={categoria.nomeCategoria} 
-                                    nomeTag={categoria.nomeTag}
+                                        id={categoria.id} 
+                                        nomeCategoria={categoria.nomeCategoria} 
+                                        nomeTag={categoria.nomeTag}
                                     />
                                 ))}  
-
-                                {calcNumPage().map((element, index) => 
-                                    <div key={index}>
-                                        <button onClick={() => fetchMorePosters(element)}>{element}</button>
+                                    <div className="lg:mt-[2.5%]">
+                                        {calcNumPage().map((element, index) => 
+                                            <div key={index}>
+                                                <button onClick={() => fetchMorePosters(element)}>{element}</button>
+                                            </div>
+                                        )}
                                     </div>
-                                )}
-
-                                    <div className="lg:mt-[2.5%]"><Pagination/></div>
                                 </div>
                             </div>
                         </div>
