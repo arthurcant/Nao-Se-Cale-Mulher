@@ -46,7 +46,7 @@ export function Index() {
     
     function calcNumPage() {
         var td = [];
-        for (let index = 1; index <= amountPages; ++index) {
+        for (let index = 1; index <= (totalResults % 2 == 0 ? totalResults / pageSize : (totalResults / pageSize) + 1 ); ++index) {
             td.push(index)
         }
         return td;
@@ -71,7 +71,7 @@ export function Index() {
                         ))}  
                   
                         <div className='flex items-center gap-5 w-full justify-center'>
-                            {[1,2,3].map((element, index) => 
+                            {calcNumPage().map((element, index) => 
                                 <div key={index}>
                                     <button onClick={() => fetchMorePosters(element)}>{element}</button>
                                 </div>
