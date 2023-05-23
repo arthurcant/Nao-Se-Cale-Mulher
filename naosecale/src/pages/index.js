@@ -59,27 +59,24 @@ export function Index() {
             <div className="bg-[#FFDEF6]">
     
                 <div className="flex flex-col lg:flex-row items-start justify-between shadow-xl bg-[#FFDEF6]">
-                    <div className="ml-7 border-solid border-2 rounded-lg shadow-xl lg:p-20 p-10 pt-10 lg:mt-16 bg-white">
-                  {listPosters.map((poster) => (
-                    <Posts 
-                    id={poster.id} 
-                    titulo={poster.titulo} 
-                    dataDaPublicacao={Intl.DateTimeFormat('pt-BR').format(new Date(poster.dataDaPublicacao))} 
-                    descricao={poster.descricao}
-                    categorias={poster.tags}
-                    />
-                  ))}  
-
-                <div className='text-black' >
-                    {/* Tentativa inicial de paginação */}
-                    {[1,2,3].map((element, index) => {
-                        return(
-                            <div className='text-black' key={index}>
-                                <button className='text-black' onClick={() => fetchMorePosters(element)} value={element} />
-                            </div>
-                        )
-                    })}
-                </div>
+                    <div className="flex flex-col ml-7 border-solid border-2 rounded-lg shadow-xl lg:p-20 p-10 pt-10 lg:mt-16 bg-white gap-10">
+                        {listPosters.map((poster) => (
+                            <Posts 
+                            id={poster.id} 
+                            titulo={poster.titulo} 
+                            dataDaPublicacao={Intl.DateTimeFormat('pt-BR').format(new Date(poster.dataDaPublicacao))} 
+                            descricao={poster.descricao}
+                            categorias={poster.tags}
+                            />
+                        ))}  
+                  
+                        <div className='flex items-center gap-5 w-full justify-center'>
+                            {[1,2,3].map((element, index) => 
+                                <div key={index}>
+                                    <button onClick={() => fetchMorePosters(element)}>{element}</button>
+                                </div>
+                            )}
+                        </div>
 
                     </div>
 

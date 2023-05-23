@@ -60,7 +60,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"email\": \"arthurbig12@gmail.com\",\r\n  \"password\": \"admin213!\"\r\n}",
+					"raw": "{\r\n  \"email\": \"joaumzinho307@gmail.com\",\r\n  \"password\": \"admin213!\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -68,12 +68,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:7126/api/Autenticacao/v1/signin",
-					"protocol": "https",
+					"raw": "{{baseUrl}}/api/Autenticacao/v1/signin",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "7126",
 					"path": [
 						"api",
 						"Autenticacao",
