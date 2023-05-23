@@ -4,18 +4,18 @@ import { Tags } from "./Tags";
 export function Posts(props) {
     
     return(
-        <div key={props.id}>
-            <div className="border-solid border-2 p-40 lg:m-5 shadow-xl">
+        <div key={props.id} className="flex flex-col gap-5">
+            <div className="border-solid border-2 p-40 shadow-md">
                 <img className="object-cover" src="../src/img/Mulher.png"/>
             </div>
 
-            <div className="mt-0 ml-5  font-weight: 900">
-                <div className="font-weight:900 mt-0"><span>{props.titulo}</span></div>
-                <span>{props.dataDaPublicacao}</span>
+            <div className="font-weight: 900">
+                <div className="font-weight:900 text-lg  font-bold"><span>"{props.titulo}"</span></div>
+                <span className="font-light">{props.dataDaPublicacao}</span>
             </div>
 
-            <div className="m-5">
-                <a>{props.descricao}</a>
+            <div className="">
+                <a className="font-light">{props.descricao}</a>
             </div>
             <Tags categorias={props.categorias} />
         </div>
