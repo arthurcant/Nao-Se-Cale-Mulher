@@ -80,7 +80,6 @@ export function Categories(){
                                     </div>
                                 )}
 
-                                    <div className="lg:mt-[2.5%]"><Pagination/></div>
                                 </div>
                             </div>
                         </div>
