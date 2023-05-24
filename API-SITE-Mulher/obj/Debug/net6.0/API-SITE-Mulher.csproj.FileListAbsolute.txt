@@ -257,3 +257,5 @@ C:\Users\joaum\OneDrive\Documentos\Thur Thur\Nao-Se-Cale\API-SITE-Mulher\obj\Deb
 C:\Users\joaum\OneDrive\Documentos\Thur Thur\Nao-Se-Cale\API-SITE-Mulher\obj\Debug\net6.0\API-SITE-Mulher.pdb
 C:\Users\joaum\OneDrive\Documentos\Thur Thur\Nao-Se-Cale\API-SITE-Mulher\obj\Debug\net6.0\API-SITE-Mulher.genruntimeconfig.cache
 C:\Users\joaum\OneDrive\Documentos\Thur Thur\Nao-Se-Cale\API-SITE-Mulher\obj\Debug\net6.0\ref\API-SITE-Mulher.dll
+C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\bin\Debug\net6.0\API-SITE-Mulher.xml
+C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\obj\Debug\net6.0\API-SITE-Mulher.xml
