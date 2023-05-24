@@ -13,12 +13,10 @@ import React, { useState, useEffect} from 'react'
 export function Index() {
 
     const [currentPage, setCurrentPage] = useState(0);
-    const [amountPages, setAmountPages] = useState(0);
     const [totalResults, setTotalResults] = useState(0);
     const [pageSize, setPageSize] = useState(4);
     const [listPosters, setListPosters] = useState([]);
-    const [listNum, setListNum] = useState([]);
-    const [page, setPage] = useState(1);
+
     const email = localStorage.getItem('email')
     const accessToken = localStorage.getItem('accessToken')
 
@@ -41,7 +39,6 @@ export function Index() {
         setTotalResults(response.data.totalResults)
         setCurrentPage(response.data.currentPage)
         setListPosters([...response.data.list])
-        setAmountPages((totalResults % 2 == 0 ? totalResults / pageSize : (totalResults / pageSize) + 1 ))
     }
     
     function calcNumPage() {

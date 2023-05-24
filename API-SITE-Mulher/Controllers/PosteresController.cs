@@ -70,6 +70,19 @@ namespace API_SITE_Mulher.Controllers
             return Ok(posterUpdated);
         }
 
+        [HttpPatch]
+        [Route("updateUrlImagePoster/{id}")]
+        public IActionResult UpdateUrlImagePoster(int id, ImageUrlVO imageURL)
+        {
+            if (!(id > 0 && imageURL is not null)) return BadRequest("Invalid Request");
+
+            var IsPosterUpdate = _posteresBusiness.UpdateImageUrlPoster(id, imageURL);
+
+            if (IsPosterUpdate == false) return BadRequest("Invalid Request");
+
+            return NoContent();
+        }
+
         [HttpGet("{id}")]
         public IActionResult DeletePoster(long id)
         {

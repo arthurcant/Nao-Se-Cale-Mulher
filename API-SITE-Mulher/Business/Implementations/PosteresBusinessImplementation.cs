@@ -102,6 +102,20 @@ namespace API_SITE_Mulher.Business.Implementations
                 TotalResults = totalResult
             };
         }
+        public bool UpdateImageUrlPoster(int id, ImageUrlVO imageUrl)
+        {
+            var poster = _posteresRepository.FindById(id);
+
+            if (poster is null) return false;
+
+            poster.UrlImagePoster = imageUrl.UrlImage;
+
+            var posterUpdated = _posteresRepository.Update(poster);
+
+            if (posterUpdated is null) return false;
+
+            return true;
+        }
 
         public Poster Update(Poster poster, tb_usuario tbUsuario)
         {
