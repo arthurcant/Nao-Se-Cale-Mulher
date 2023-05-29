@@ -1,7 +1,6 @@
 import { Box } from '../components/Box'
 import { Topbar } from '../components/Topbar'
 import { Footer } from '../components/Footer'
-import { Mapa } from '../components/Mapa'
 import { FaHome, FaPhoneAlt, FaFlag, FaInfoCircle, FaExclamationTriangle, FaSearch,FaArrowRight } from 'react-icons/fa';
 import { Pagination } from '../components/Pagination'
 
@@ -18,8 +17,6 @@ export function Contact() {
                             <span>Contato</span>
                             <input type="text" className="hidden lg:grid lg:flex-row shadow-lg border-2 hover:border-pink-500 ml-20 rounded-full text-black transition-colors margin lg:ml-20 lg:w-60 lg:ml-10 lg:text-2xl"/>
                         </div>
-            
-                       <Mapa/>
 
                     </div>
                 </div>

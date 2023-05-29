@@ -76,11 +76,7 @@ export function Categories(){
                                             </div>
                                         )}
                                     </div>
-<<<<<<< HEAD
-                                )}
-
-=======
->>>>>>> 0c3d143c0723fff31f37aa28fd80d078e0ab94cc
+                               
                                 </div>
                             </div>
                         </div>
