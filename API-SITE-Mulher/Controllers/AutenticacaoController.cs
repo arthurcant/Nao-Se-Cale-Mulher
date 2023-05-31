@@ -1,5 +1,6 @@
 ﻿using API_SITE_Mulher.Business;
 using API_SITE_Mulher.Data.VO;
+using API_SITE_Mulher.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,21 +20,33 @@ namespace API_SITE_Mulher.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// End-point de fazer o login.
+        /// </summary>
+        /// <returns>Retorna um Token.</returns>
         [HttpPost]
         [Route("signin")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PagedSearchVO<Poster>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Signin([FromBody] UserVO user) 
         {
             if (user is null) return BadRequest("Invalid client");
 
             var token = _loginBusiness.ValidateCredentials(user);
 
-            if (token == null) return Unauthorized();
+            if (token == null) return BadRequest();
 
             return Ok(token);
         }
 
+        /// <summary>
+        /// End-point para fazer o registro um usuário no sistema.
+        /// </summary>
+        /// <returns>Retorna o usuário resgistrado.</returns>
         [HttpPost]
         [Route("registe")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PagedSearchVO<Poster>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Resgiste([FromBody] UsuarioRegisterVO user )
         {
             if (user == null) return BadRequest("Invalid register user");
@@ -42,12 +55,19 @@ namespace API_SITE_Mulher.Controllers
 
             if (usuarioRegistrado == null) return BadRequest("The user was't registered with sucess.");
 
-            //TODO: MUDAR RESPOSTA PARA CREATED 201
             return Ok(usuarioRegistrado);
         }
 
+        /// <summary>
+        /// End-point para atualizar o acesso do token de um usuário já autenticado na API.
+        /// </summary>
+        /// <returns>Retorna o token com o acesso atualizado da API.</returns>
         [HttpPost]
         [Route("refresh")]
+        [Authorize("Bearer")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PagedSearchVO<Poster>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public IActionResult Refresh([FromBody] RefreshTokenVO tokenVo)
         {
             if (tokenVo is null) return BadRequest("Invalid client request");
@@ -59,9 +79,19 @@ namespace API_SITE_Mulher.Controllers
             return Ok(token);
         }
 
+        /// <summary>
+        /// Esse end-point revogar o refresh token do usuário autenticado na API.
+        /// </summary>
+        /// <remarks>
+        /// Ao revogar o refresh token do usuário ele só poderá usufruir dos recursos da API somente enquando o seu token ainda não expirou.
+        /// </remarks>
+        
         [HttpGet]
         [Route("revoke")]
         [Authorize("Bearer")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PagedSearchVO<Poster>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public IActionResult Revoke()
         {
             var username = User.Identity.Name;

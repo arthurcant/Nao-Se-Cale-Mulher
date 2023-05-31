@@ -1,6 +1,9 @@
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\obj\Release\net6.0\PubTmp\Out\API-SITE-Mulher.exe
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\obj\Release\net6.0\PubTmp\Out\Collections\Categorias.postman_collection.json
+C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\obj\Release\net6.0\PubTmp\Out\Collections\Login.postman_collection.json
+C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\obj\Release\net6.0\PubTmp\Out\Collections\Posteres.postman_collection.json
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\obj\Release\net6.0\PubTmp\Out\libman.json
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\obj\Release\net6.0\PubTmp\Out\API-SITE-Mulher.dll
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\obj\Release\net6.0\PubTmp\Out\API-SITE-Mulher.runtimeconfig.json

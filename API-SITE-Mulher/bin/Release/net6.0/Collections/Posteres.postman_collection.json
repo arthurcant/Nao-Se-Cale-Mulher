@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "bd0916da-b614-492f-bc69-30d052d83a8e",
+		"name": "Posteres",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17967844",
+		"_collection_link": "https://dark-station-531392.postman.co/workspace/API_Site_Mulher~01a8a2e4-682c-497e-9d40-001139218bb5/collection/17967844-bd0916da-b614-492f-bc69-30d052d83a8e?action=share&creator=17967844&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "RegisterPoster",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"titulo\": \"Violência Doméstica08\",\r\n  \"urlImagePoster\": null,\r\n  \"descricao\": \"Entendida como qualquer ação ou omissão baseada no gênero que cause à mulher morte, lesão, sofrimento físico, sexual ou psicológico e dano moral ou patrimonial no âmbito da unidade doméstica, no âmbito da família ou em qualquer relação íntima de afeto, na qual o agressor conviva ou tenha convivido com a ofendida, independentemente de coabitação (Lei 11.340/2006)\",\r\n  \"conteudo\": \"<h1>Tudo sobre violência doméstica</h1><p>Segundo o fórum brasileiro de segurança pública, Mais de 18 milhões de mulheres foram vítimas de violência no brasil, Em média 4 agressões ao longo do ano. Entre as divorciadas, esse número se torna ainda mais alarmante, aumentando a média para 9 agressões durante o ano. Segundo esta mesma pesquisa, há um aumento de 4 pontos percentuais sobre as mulheres vítimas de agressão, se comparar com a pesquisa anterior. Devido a números tão urgentes, há a necessidade de informar as mulheres vítimas de violência cada um dos seus direitos, para que tenham conhecimento das leis que as protegem diante dessas situações. Entre estas leis, a mais conhecida é a Lei Maria da Penha.</p><p>A Lei Maria da Penha é uma legislação brasileira criada em 2006 com o objetivo de proteger mulheres vítimas de violência doméstica e familiar. Ela foi batizada com o nome de Maria da Penha Maia Fernandes, que ficou paraplégica após sofrer duas tentativas de homicídio por parte do seu marido.</p><p>A Lei Maria da Penha estabelece medidas de proteção para as mulheres em situação de violência doméstica, como a possibilidade de afastamento do agressor do lar, a proibição de aproximação da vítima e a realização de acompanhamento psicossocial para a mulher e seus filhos. Além disso, a lei também prevê a criação de delegacias especializadas, juizados especializados e centros de atendimento às mulheres vítimas de violência.</p><p>A legislação também ampliou o conceito de violência doméstica, que passou a incluir não apenas agressões físicas, mas também violência psicológica, sexual, patrimonial e moral. Além disso, a Lei Maria da Penha determina que a violência contra a mulher é um crime que deve ser punido com rigor, sem possibilidade de pagamento de fiança pelo agressor.</p><p>A Lei Maria da Penha é considerada um marco na luta contra a violência de gênero no Brasil, pois contribuiu para aumentar a conscientização sobre o problema e promover a proteção das mulheres vítimas de violência. No entanto, ainda há muito a ser feito para garantir que a lei seja efetivamente aplicada e que as mulheres recebam o apoio necessário para superar a violência doméstica.</p>\",\r\n  \"tags\": [\r\n    1\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/posteres/v1/registerpost",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"posteres",
+						"v1",
+						"registerpost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPosteres",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/posteres/v1/asc/4/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"posteres",
+						"v1",
+						"asc",
+						"4",
+						"1"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "teste",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePosteres",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/posteres/v1/5",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"posteres",
+						"v1",
+						"5"
+					],
+					"query": [
+						{
+							"key": "Title",
+							"value": "klsjdalfjk",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdatePoster",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 5,\r\n  \"titulo\": \"string\",\r\n  \"descricao\": \"string\",\r\n  \"conteudo\": \"string\",\r\n  \"tags\": [\r\n    {\r\n        \"id\": 1,\r\n        \"nomeCategoria\": \"Direitos Contra  Violência Institucional\",\r\n        \"nomeTag\": \"#DireitosContraViolenciaInstitucional\"\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"nomeCategoria\": \"Direitos Contra Violência Doméstica\",\r\n        \"nomeTag\": \"#DireitosContraViolenciaDomentica\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/posteres/v1/updateposter",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"posteres",
+						"v1",
+						"updateposter"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

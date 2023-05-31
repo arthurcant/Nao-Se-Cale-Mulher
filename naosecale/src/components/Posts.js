@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Tags } from "./Tags";
+import img from "../img/Mulher.png"
 
 export function Posts(props) {
     
     return(
         <div key={props.id} className="flex flex-col gap-5">
             <div className="border-solid border-2 p-40 shadow-md">
-                <img className="object-cover" src="../src/img/Mulher.png"/>
+                <img className="object-cover" src={img} />
             </div>
 
             <div className="font-weight: 900">

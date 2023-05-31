@@ -21,8 +21,8 @@ export function Topbar() {
     return (
         <div className="flex flex-row w-full  items-center justify-between shadow-xl text-white bg-[#6b0023] px-10 py-7 lg:py-0">
             <div className="italic font-extrabold items-center text-xl lg:text-2xl">
-                <Link to="/"><span className="hidden lg:flex">Não Se Cale !</span></Link>
-                <Link to="/"><span className="flex lg:hidden">NSC!</span></Link>
+                <Link to="/"><span className="hidden lg:flex">Não Se Cale Mulher</span></Link>
+                <Link to="/"><span className="flex lg:hidden">Não Se Cale Mulher</span></Link>
             </div>
 
             <SearchBar />

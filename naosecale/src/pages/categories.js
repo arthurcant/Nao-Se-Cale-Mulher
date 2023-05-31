@@ -37,10 +37,11 @@ export function Categories(){
         setCurrentPage(response.data.currentPage)
         setListPosters([...response.data.list])
     }
-    
+   
     function calcNumPage() {
         var td = [];
-        for (let index = 1; index <= (totalResults % 2 == 0 ? totalResults / pageSize : (totalResults / pageSize) + 1 ); ++index) {
+        let numerosDePaginas = (totalResults % 2 == 0 ? totalResults / pageSize : (totalResults / pageSize) + 1 );
+        for (let index = 1; index <= numerosDePaginas; ++index) {
             td.push(index)
         }
         return td;
@@ -76,7 +77,6 @@ export function Categories(){
                                             </div>
                                         )}
                                     </div>
-                               
                                 </div>
                             </div>
                         </div>

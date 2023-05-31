@@ -16,7 +16,9 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 using System.Text;
+using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -85,15 +87,22 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "Api-nao-se-cale-mulher",
         Version = "v1",
+        Title = "Api-nao-se-cale-mulher",
+        Description = "API do blog Não Se Cale Mulher",
         Contact = new OpenApiContact
         {
             Name = "Api-nao-se-cale-mulher",
+            Email = "arthurbig19@gmail.com",
             Url = new Uri("https://github.com/arthurcant/Nao-Se-Cale-Mulher")
         }
     });
+    // Adicionar os comentarios em xml dos controllers para o swagger UI.
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    c.IncludeXmlComments(xmlPath);
 });
+
 
 builder.Services.AddScoped<ICategoriasBusiness, CategoriasBusinessImplementation>();
 builder.Services.AddScoped<ILoginBusiness, LoginBusinessImplementation>();

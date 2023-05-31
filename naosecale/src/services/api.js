@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const api = axios.create({
     baseURL: 'https://localhost:7126'
 })
-
+// Url de teste: https://naosecalemulher.azurewebsites.net
 export default api;
 
 // async function FirstLogin() {

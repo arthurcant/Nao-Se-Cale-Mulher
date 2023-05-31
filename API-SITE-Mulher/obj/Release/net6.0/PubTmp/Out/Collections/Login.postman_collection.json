@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "0cb818c4-712c-448d-8ad2-96cdedfc2c23",
+		"name": "Login",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17967844",
+		"_collection_link": "https://dark-station-531392.postman.co/workspace/API_Site_Mulher~01a8a2e4-682c-497e-9d40-001139218bb5/collection/17967844-0cb818c4-712c-448d-8ad2-96cdedfc2c23?action=share&creator=17967844&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "RegisterUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nomeCompleto\": \"Arthur Cavalcante Gomes da Silva\",\r\n  \"email\": \"arthurbig19@gmail.com\",\r\n  \"senha\": \"admin213!\",\r\n  \"apelido\": \"arthur Cavalcante\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/Autenticacao/v1/registe",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"Autenticacao",
+						"v1",
+						"registe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if(responseCode.code >= 200 && responseCode.code <= 299) {\r",
+							"    var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"    postman.setEnvironmentVariable('accessToken', jsonData.accessToken);    \r",
+							"\r",
+							"    postman.setEnvironmentVariable('refreshToken', jsonData.refreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"joaumzinho307@gmail.com\",\r\n  \"password\": \"admin213!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/Autenticacao/v1/signin",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"Autenticacao",
+						"v1",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/Autenticacao/v1/Revoke",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"Autenticacao",
+						"v1",
+						"Revoke"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refreshToken",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4ZjY5ZGI0MC03NWE4LTRlODAtODU0Yi0xNDAyMWVmOWE3NTIiLCJ1bmlxdWVfbmFtZSI6ImFydGh1cmJpZzEyQGdtYWlsLmNvbSIsImV4cCI6MTY4MzU0MTYxNCwiaXNzIjoiRXhlbXBsZUlzc3VlciIsImF1ZCI6IkV4ZW1wbGVBdWRpZW5jZSJ9.0CN4z5zK6s2hgldOQ-6r15dL8BlDvOZJ_TFsMEWZHNE\",\r\n    \"refreshToken\": \"ldIvyca8c7opjAj3F9WMOcL//sQsTIpCC1NN/Znt3d4=\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/autenticacao/v1/refresh",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"autenticacao",
+						"v1",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
