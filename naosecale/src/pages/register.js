@@ -1,38 +1,51 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../services/api";
 import { Box } from '../components/Box'
 import { Footer } from '../components/Footer'
 import { Topbar } from '../components/Topbar'
-import axios from 'axios'
+import axios from '../data/client'
+import Cookie from 'js-cookie'
 
 
 export function Register() {
-
-    const [nomeCompleto, setNomeCompleto] = useState("")
+    const [nome, setNome] = useState("")
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [apelido, setApelido] = useState("");
+    const [gender, setGender] = useState("")
 
     const history = useNavigate();
+
+    function setCookieIdUser(token) {
+        Cookie.set('Admin-cookie-MyRocket', token, {
+            expires: 7,
+        });
+    }
 
     async function actionResgister() {
 
         const data = {
-            nomeCompleto: nomeCompleto,
-            email: email,
-            senha: senha,
-            apelido: apelido
+            name: nome,
+            email,
+            password: senha,
+            gender,
+            nick: apelido
         }
+
+        console.log(data)
 
         try {
-            await axios.post('/api/posteres/v1/registe', data)
-            history("/login")
-
+            console.log('aaaa')
+            const token = await axios.post('/user/create', data).data
+            console.log('token')
+            console.log(token)
+            setCookieIdUser(token)
+            history("/")
         } catch (error) {
-
+            console.log(error)
         }
     }
+
 
 
     return (
@@ -48,17 +61,17 @@ export function Register() {
 
                         <div className=" flex flex-col w-[50%] justify-start items-center gap-5 py-10">
                             <div className="flex flex-col lg:flex-row gap-2">
-                                <input type='text' placeholder="Nome" className="lg:w-[50%] border-2 rounded-lg p-2" />
+                                <input type='text' onChange={(e) => setNome(e.target.value)} placeholder="Nome" className="lg:w-[50%] border-2 rounded-lg p-2" />
 
-                                <input type='text' placeholder="Apelido" className="lg:w-[50%] w-full border-2 rounded-lg p-2" />
+                                <input type='text' onChange={(e) => setApelido(e.target.value)} placeholder="Apelido" className="lg:w-[50%] w-full border-2 rounded-lg p-2" />
                             </div>
 
                             <div className="lg:w-full w-[105%] lg:mt-[5%]">
-                                <input type='email' placeholder="Email" className="w-full border-2 rounded-lg p-2" />
+                                <input type='email' onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="w-full border-2 rounded-lg p-2" />
                             </div>
 
                             <div className="w-full lg:mt-[2%] w-[105%]">
-                                <input type='password' placeholder="Senha" className="w-full border-2 rounded-lg p-2" />
+                                <input type='password' onChange={(e) => setSenha(e.target.value)} placeholder="Senha" className="w-full border-2 rounded-lg p-2" />
                             </div>
 
                             <div className="flex flex-col w-full lg:justify-start lg:items-start  items-center">
@@ -72,7 +85,7 @@ export function Register() {
                             <div className="flex flex-col w-full lg:h-[100%] lg:justify-start lg:items-start items-center">
                                 <span>Gênero</span>
                                 <div className="border-2 p-2 w-[80%] border-[#6b0023] rounded-md">
-                                    <select>
+                                    <select onChange={(e) => setGender(e.target.value)}>
                                         <option value="masc">Masculino</option>
                                         <option value="fem">Feminino</option>
                                         <option value="fem">Outro</option>

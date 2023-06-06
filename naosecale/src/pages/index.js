@@ -4,18 +4,22 @@ import { Topbar } from '../components/Topbar'
 import { Pagination } from '../components/Pagination'
 import { Posts } from '../components/Posts'
 import { Tags } from '../components/Tags'
-import api  from '../services/api'
+import api from '../services/api'
+import Cookie from 'js-cookie'
+import decode from 'jwt-decode'
+
 
 import { FaHome, FaPhoneAlt, FaFlag, FaInfoCircle, FaExclamationTriangle, FaSearch, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 
 export function Index() {
-
     const [currentPage, setCurrentPage] = useState(0);
     const [totalResults, setTotalResults] = useState(0);
     const [pageSize, setPageSize] = useState(4);
     const [listPosters, setListPosters] = useState([]);
+    const [user, setUser] = useState({})
+    const token = Cookie.get('Admin-cookie-MyRocket')
 
     const email = localStorage.getItem('email')
     const accessToken = localStorage.getItem('accessToken')
@@ -29,7 +33,14 @@ export function Index() {
     useEffect(() => {
         fetchMorePosters()
     }, [accessToken])
-    
+
+    useEffect(() => {
+        if (token) {
+            const token = decode(token)
+            setUser(token)
+        } 
+    }, [token])
+
     async function fetchMorePosters(numPage = 1) {
         const response = await api.get(`/api/posteres/v1/asc/${pageSize}/${numPage}`, authorization)
 
@@ -40,36 +51,36 @@ export function Index() {
         setCurrentPage(response.data.currentPage)
         setListPosters([...response.data.list])
     }
-    
+
     function calcNumPage() {
         var td = [];
-        let numerosDePaginas = (totalResults % 2 == 0 ? totalResults / pageSize : (totalResults / pageSize) + 1 );
+        let numerosDePaginas = (totalResults % 2 == 0 ? totalResults / pageSize : (totalResults / pageSize) + 1);
         for (let index = 1; index <= numerosDePaginas; ++index) {
             td.push(index)
         }
         return td;
     }
 
-    return(
+    return (
         <div className='w-full'>
-            <Topbar/>
+            <Topbar />
 
             <div className="bg-[#FFDEF6]">
-    
+
                 <div className="flex flex-col lg:flex-row items-start justify-between shadow-xl bg-[#FFDEF6]">
                     <div className="flex flex-col ml-7 border-solid border-2 rounded-lg shadow-xl lg:p-20 p-10 pt-10 lg:mt-16 bg-white gap-10">
                         {listPosters.map((poster) => (
-                            <Posts 
-                            id={poster.id} 
-                            titulo={poster.titulo} 
-                            dataDaPublicacao={Intl.DateTimeFormat('pt-BR').format(new Date(poster.dataDaPublicacao))} 
-                            descricao={poster.descricao}
-                            categorias={poster.tags}
+                            <Posts
+                                id={poster.id}
+                                titulo={poster.titulo}
+                                dataDaPublicacao={Intl.DateTimeFormat('pt-BR').format(new Date(poster.dataDaPublicacao))}
+                                descricao={poster.descricao}
+                                categorias={poster.tags}
                             />
-                        ))}  
-                  
+                        ))}
+
                         <div className='flex items-center gap-5 w-full justify-center'>
-                            {calcNumPage().map((element, index) => 
+                            {calcNumPage().map((element, index) =>
                                 <div key={index}>
                                     <button onClick={() => fetchMorePosters(element)}>{element}</button>
                                 </div>
@@ -79,7 +90,7 @@ export function Index() {
                     </div>
 
                     <div className="p-10 bg-[#FFDEF6]"></div>
-    
+
                     <div className="lg:mt-16 bg-white border-solid border-2 shadow-xl rounded-lg lg:p-14 p-5 pt-10 mr-10">
                         <div className="mb-10 text-center border-solid border-2 rounded-lg p-2 bg-[#a6024f] text-white text-3xl">
                             <span>Canais de Apoio</span>
@@ -94,7 +105,7 @@ export function Index() {
 
             </div>
 
-            <Footer/>
+            <Footer />
         </div>
     )
 }

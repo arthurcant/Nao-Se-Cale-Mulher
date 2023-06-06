@@ -1,43 +1,48 @@
 import { Link } from "react-router-dom";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import { Box } from '../components/Box'
 import { Footer } from '../components/Footer'
 import { Topbar } from '../components/Topbar'
+import axios from '../data/client'
+import Cookie from 'js-cookie'
 
 
-export function Login(){
+export function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const history = useNavigate();
 
+    function setCookieIdUser(token) {
+        Cookie.set('Admin-cookie-MyRocket', token, {
+            expires: 7,
+        });
+    }
+
     async function login(e) {
         e.preventDefault();
 
         const data = {
-            email: "arthurbig12@gmail.com",
-            password: "admin213!"
+            email,
+            password
         }
-        
+
         try {
-            
-            const response = await api.post('/api/Autenticacao/v1/signin', data);
-            console.log(response);
-            localStorage.setItem('email', data.email);
-            localStorage.setItem('accessToken', response.data.accessToken);
-            localStorage.setItem('refreshToken', response.data.refreshToken);
+            console.log('aaaa')
+            const token = await axios.post('/user/create', data).data
+            console.log('token')
+            console.log(token)
+            setCookieIdUser(token)
             history("/")
-            
-        }catch(error){
-            
+        } catch (error) {
+            console.log(error)
         }
-        console.log("Chamando função login");
     }
 
-    return(
+    return (
         <div>
             <div className="bg-black">
 
@@ -55,11 +60,11 @@ export function Login(){
 
                                 <input type='text' placeholder="Senha" onChange={((e) => setPassword(e.target.value))} className="lg:w-[50%] border-2 rounded-lg p-2" />
                             </div>
-                            
+
                             {/* <Link to="/"> */}
-                                <div onClick={login} className="mt-[15%] text-center border-solid border-2 rounded-lg p-2 bg-[#a6024f] text-white text-2xl">
-                                    <span>Entrar</span>
-                                </div>
+                            <div onClick={login} className="mt-[15%] text-center border-solid border-2 rounded-lg p-2 bg-[#a6024f] text-white text-2xl">
+                                <span>Entrar</span>
+                            </div>
                             {/* </Link> */}
 
                             {/* <Link to="">
@@ -81,7 +86,7 @@ export function Login(){
                 </div>
 
             </div>
-            <Footer/>
+            <Footer />
         </div>
     )
 }
