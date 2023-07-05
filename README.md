@@ -1,7 +1,7 @@
 # Nao-Se-Cale-Mulher
 O projeto Não Se Cale é um site com intuito de divulgar informações de grande relevância social para mulheres que sofrem de violência domestica, física e psicológica.
 
-possuir um client feito em Reactjs e uma  API ``.Net 6.0``. Que possuir Swagger, Sistema de login com tokens JWT, Serilog entre outros, implementados.
+Possuir um client feito em Reactjs e uma  API ``.Net 6.0``. Que possuir Swagger, Sistema de login com tokens JWT, Serilog entre outros, implementados.
 
 # Como executar
 
