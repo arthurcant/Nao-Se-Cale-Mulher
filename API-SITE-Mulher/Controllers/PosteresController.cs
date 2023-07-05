@@ -14,11 +14,11 @@ namespace API_SITE_Mulher.Controllers
     [Authorize("Bearer")]
     public class PosteresController : ControllerBase
     {
-        private readonly ILogger<Poster> _logger;
+        private readonly ILogger<PosteresController> _logger;
         private IUsersRepository _repository;
         private IPosteresBusiness _posteresBusiness;
 
-        public PosteresController(ILogger<Poster> logger, IUsersRepository repository, IPosteresBusiness posteresBusiness)
+        public PosteresController(ILogger<PosteresController> logger, IUsersRepository repository, IPosteresBusiness posteresBusiness)
         {
             _logger = logger;
             _repository = repository;

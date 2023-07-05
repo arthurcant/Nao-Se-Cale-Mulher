@@ -66,7 +66,7 @@ namespace API_SITE_Mulher.Data.Converter.Implementations
             poster.Conteudo = origin.Conteudo;
             poster.DataDaPublicacao = DateTime.Now;
             poster.UsuarioAutor = _usuarioConverter.Parse(tbUsuario);
-            poster.Id_usuario = poster.UsuarioAutor.Id;
+            poster.Id_usuario = origin.id_usuario;
 
             if(!(origin.tbCategoriaDePosteres is null))
             {

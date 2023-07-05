@@ -7,9 +7,37 @@ import { Register } from './pages/register'
 import { Write } from './pages/write'
 import { Open } from './pages/open'
 import { Routes, Route } from "react-router-dom";
+import { useEffect, useState } from 'react'
+import api  from './services/api'
 import { ChakraProvider } from '@chakra-ui/react'
 
 export default function App() {
+
+  
+  useEffect(() => {
+    async function login() {
+
+      const data = {
+        email: "arthurbig12@gmail.com",
+        password: "admin213!"
+      }
+      
+      try {
+        const response = await api.post('/api/Autenticacao/v1/signin', data);
+        localStorage.setItem('email', data.email);
+        localStorage.setItem('accessToken', response.data.accessToken);
+        localStorage.setItem('refreshToken', response.data.refreshToken);
+          
+      }catch(error){
+          
+      }
+      console.log("Chamando função login");
+  }
+
+    login()
+
+  },[])
+
   return (
     <ChakraProvider>
         <Routes>

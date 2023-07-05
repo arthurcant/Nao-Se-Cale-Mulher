@@ -18,8 +18,6 @@ export function Index() {
     const [totalResults, setTotalResults] = useState(0);
     const [pageSize, setPageSize] = useState(4);
     const [listPosters, setListPosters] = useState([]);
-    const [user, setUser] = useState({})
-    const token = Cookie.get('Admin-cookie-MyRocket')
 
     const email = localStorage.getItem('email')
     const accessToken = localStorage.getItem('accessToken')
@@ -33,13 +31,6 @@ export function Index() {
     useEffect(() => {
         fetchMorePosters()
     }, [accessToken])
-
-    useEffect(() => {
-        if (token) {
-            const token = decode(token)
-            setUser(token)
-        } 
-    }, [token])
 
     async function fetchMorePosters(numPage = 1) {
         const response = await api.get(`/api/posteres/v1/asc/${pageSize}/${numPage}`, authorization)

@@ -33,6 +33,7 @@ namespace API_SITE_Mulher.Repository.Implementations
         public void DeleteById(int id)
         {
             var result = dataset.FirstOrDefault((t) => t.Id == id);
+
             if (result != null)
             {
                 try

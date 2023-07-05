@@ -16,11 +16,9 @@ export function Open() {
 
             <div className="flex flex-col h-screen items-center justify-center shadow-xl bg-[#FFDEF6]">
     
-                <div className="flex flex-col justify-center items-center bg-white rounded-lg lg:h-[95%] lg:w-[48%] h-[85%] w-[85%]">
+                <div className="flex justify-center bg-white rounded-lg lg:h-[95%] lg:w-[48%] h-[85%] w-[85%]">
                         <div className="text-3xl text-center mt-[7.5%]"><span>Titulo Do Poster</span></div>
-                        <Posts/>
                     
-                        <div className=""><Pagination/></div>
                 </div>
             </div>
             <Footer/>

@@ -42,4 +42,5 @@ C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\obj\Release\net6.0\PubTmp\Out\System.Diagnostics.DiagnosticSource.dll
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\obj\Release\net6.0\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\obj\Release\net6.0\PubTmp\Out\System.Memory.Data.dll
+C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\obj\Release\net6.0\PubTmp\Out\API-SITE-Mulher.xml
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\obj\Release\net6.0\PubTmp\Out\API-SITE-Mulher.deps.json

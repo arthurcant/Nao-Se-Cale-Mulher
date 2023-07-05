@@ -107,6 +107,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddScoped<ICategoriasBusiness, CategoriasBusinessImplementation>();
 builder.Services.AddScoped<ILoginBusiness, LoginBusinessImplementation>();
 builder.Services.AddScoped<IPosteresBusiness, PosteresBusinessImplementation>();
+builder.Services.AddScoped<IUsersBusiness, UsersBusinessImplementation>();
 
 builder.Services.AddScoped<UsuarioConverter>();
 builder.Services.AddScoped<CategoriaConverter>();

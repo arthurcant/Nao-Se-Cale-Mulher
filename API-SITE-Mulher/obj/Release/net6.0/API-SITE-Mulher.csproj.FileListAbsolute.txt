@@ -66,3 +66,5 @@ C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\bin\Release\net6.0\Collections\Categorias.postman_collection.json
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\bin\Release\net6.0\Collections\Login.postman_collection.json
 C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\bin\Release\net6.0\Collections\Posteres.postman_collection.json
+C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\bin\Release\net6.0\API-SITE-Mulher.xml
+C:\Users\arthu\OneDrive - Scai Hub\Área de Trabalho\projetos\Nao-Se-Cale-Mulher\API-SITE-Mulher\obj\Release\net6.0\API-SITE-Mulher.xml
