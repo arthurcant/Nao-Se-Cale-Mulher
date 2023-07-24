@@ -25,7 +25,7 @@ namespace API_SITE_Mulher.Services.Implementations
                 issuer: _configuration.Issuer,
                 audience: _configuration.Audience,
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(60),
+                expires: DateTime.Now.AddMinutes(_configuration.Minutes),
                 signingCredentials: signinCredentials
             );
 
