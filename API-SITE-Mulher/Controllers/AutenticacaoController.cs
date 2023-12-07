@@ -53,7 +53,7 @@ namespace API_SITE_Mulher.Controllers
 
             var usuarioRegistrado = _loginBusiness.RegisterUser(user);
 
-            if (usuarioRegistrado == null) return BadRequest("The user was't registered with sucess.");
+            if (usuarioRegistrado == null) return BadRequest("The user wasn't registered with sucess.");
 
             return Ok(usuarioRegistrado);
         }

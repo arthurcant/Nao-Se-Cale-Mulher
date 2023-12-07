@@ -19,9 +19,9 @@ namespace API_SITE_Mulher.Business.Implementations
         private const string DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
         private TokenConfiguration _configuration;
         private readonly UsuarioConverter _converter;
-        private IUsersRepository _repository;
+        private IUsersRepository _repositoryUser;
         private FillingEntity _fillingEntity;
-        private readonly IRepository<tb_usuario> _repositoryUser;
+        private readonly IRepository<tb_usuario> _repository;
         private readonly ITokenService _tokenService;
 
         public LoginBusinessImplementation(TokenConfiguration configuration,
@@ -32,15 +32,15 @@ namespace API_SITE_Mulher.Business.Implementations
         {
             _configuration = configuration;
             _converter = new UsuarioConverter();
-            _repository = repository;
-            _repositoryUser = repositoryUser;
+            _repositoryUser = repository;
+            _repository = repositoryUser;
             _tokenService = tokenService;
             _fillingEntity = fillingEntity;
         }
 
         public TokenVO ValidateCredentials(UserVO userCredentials)
         {
-            var user = _repository.ValidateCredentials(userCredentials);
+            var user = _repositoryUser.ValidateCredentials(userCredentials);
 
             if (user is null) return null;
 
@@ -57,7 +57,7 @@ namespace API_SITE_Mulher.Business.Implementations
             user.RefreshToken = refreshToken;
             user.RefreshTokenExpiryTime = DateTime.Now.AddDays(_configuration.DaysToExpiry);
 
-            _repository.RefreshUserInfo(_converter.Parse(user));
+            _repositoryUser.RefreshUserInfo(_converter.Parse(user));
 
             DateTime createDate = DateTime.Now;
             DateTime expiration = createDate.AddMinutes(_configuration.Minutes);
@@ -79,7 +79,7 @@ namespace API_SITE_Mulher.Business.Implementations
 
             var email = pricipal.Identity.Name;
 
-            var tb_usuario = _repository.ValidateCredentials(email);
+            var tb_usuario = _repositoryUser.ValidateCredentials(email);
 
             if (tb_usuario == null || tb_usuario.RefreshToken != refreshToken) return null;
 
@@ -88,7 +88,7 @@ namespace API_SITE_Mulher.Business.Implementations
 
             tb_usuario.RefreshToken = refreshToken;
 
-            _repository.RefreshUserInfo(_converter.Parse(tb_usuario));
+            _repositoryUser.RefreshUserInfo(_converter.Parse(tb_usuario));
             DateTime createDate = DateTime.Now;
             DateTime expirationDate = createDate.AddMinutes(_configuration.Minutes);
 
@@ -102,7 +102,7 @@ namespace API_SITE_Mulher.Business.Implementations
 
         public bool RevokeToken(string userName)
         {
-            return _repository.RevokeToken(userName);
+            return _repositoryUser.RevokeToken(userName);
         }
 
         public Usuario RegisterUser(UsuarioRegisterVO user)
@@ -110,7 +110,7 @@ namespace API_SITE_Mulher.Business.Implementations
 
             var tb_usuario = _fillingEntity.FillingEntityTbUsuario(user);
 
-            var usuarioRegistrado = _repositoryUser.Create(tb_usuario);
+            var usuarioRegistrado = _repository.Create(tb_usuario);
 
             if (usuarioRegistrado == null) return null;
 
